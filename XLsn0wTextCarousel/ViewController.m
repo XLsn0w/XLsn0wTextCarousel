@@ -33,8 +33,8 @@
     [self.view addSubview:newsView];
     [self.view addSubview:newsView2];
     newsView.delegate = self;
-    [newsView star];
-    [newsView2 star];
+    [newsView startCarousel];
+    [newsView2 startCarousel];
 
 }
 - (void)NewsBanner:(XLsn0wTextCarousel *)newsBanner didSelectIndex:(NSInteger)selectIndex

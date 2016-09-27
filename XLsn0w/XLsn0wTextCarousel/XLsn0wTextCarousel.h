@@ -25,6 +25,7 @@
 @property(nonatomic,assign)NSTimeInterval duration;
 @property (nonatomic ,strong) NSArray *noticeList;
 @property(nonatomic,weak)id <XLsn0wTextCarouselDelegate>delegate;
-- (void)star;
+
+- (void)startCarousel;
 
 @end

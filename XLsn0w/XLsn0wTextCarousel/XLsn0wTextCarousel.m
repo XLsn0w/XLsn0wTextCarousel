@@ -13,6 +13,10 @@
 
 #import "Masonry.h"
 
+@interface XLsn0wTextCarousel () <CAAnimationDelegate>
+
+@end
+
 @implementation XLsn0wTextCarousel
 
 static int countInt=0;
@@ -88,11 +92,21 @@ static int countInt=0;
     }
 
 }
-- (void)star
-{
+- (void)startCarousel {
     if (self.noticeList.count != 0) {
       [NSTimer scheduledTimerWithTimeInterval:self.duration target:self selector:@selector(displayNews) userInfo:nil repeats:YES];  
     }
     
 }
+
+#pragma mark - CAAnimationDelegate
+
+- (void)animationDidStart:(CAAnimation *)anim {
+    
+}
+
+- (void)animationDidStop:(CAAnimation *)anim finished:(BOOL)flag {
+    
+}
+
 @end
