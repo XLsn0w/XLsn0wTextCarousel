@@ -1,7 +1,7 @@
 
 Pod::Spec.new do |s|
 
-  s.version      = "1.1.1"
+  s.version      = "1.1.2"
 
   s.name         = "XLsn0wTextCarousel"
   s.homepage     = "https://github.com/XLsn0w/XLsn0wTextCarousel"
@@ -16,5 +16,7 @@ Pod::Spec.new do |s|
   s.requires_arc = true
 
   s.source_files = "XLsn0w/**/*.{h,m}"
+
+  s.dependency "Masonry"
 
 end
