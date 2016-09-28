@@ -10,7 +10,7 @@
  *********************************************************************************************/
 
 #import <UIKit/UIKit.h>
-#import "GBTopLineViewModel.h"
+
 @interface GBTopLineView : UIView
 
 @property (nonatomic,copy) void (^clickBlock)(NSInteger index);//第几个数据被点击
@@ -20,4 +20,12 @@
 
 //停止定时器(界面消失前必须要停止定时器否则内存泄漏)
 - (void)stopTimer;
+
+@end
+
+@interface GBTopLineViewModel : NSObject
+
+@property (nonatomic,copy) NSString *type;
+@property (nonatomic,copy) NSString *title;
+
 @end

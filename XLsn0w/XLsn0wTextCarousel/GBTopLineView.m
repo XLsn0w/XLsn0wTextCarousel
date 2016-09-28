@@ -206,3 +206,7 @@
 }
 
 @end
+
+@implementation GBTopLineViewModel
+
+@end

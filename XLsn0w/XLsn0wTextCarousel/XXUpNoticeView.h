@@ -10,7 +10,9 @@
  *********************************************************************************************/
 
 #import <UIKit/UIKit.h>
+
 @class XXUpNoticeView;
+
 @protocol XXUpNoticeViewDataSourceDelegate <NSObject>
 
 /**

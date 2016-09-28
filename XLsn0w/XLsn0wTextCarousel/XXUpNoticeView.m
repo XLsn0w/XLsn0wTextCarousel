@@ -25,9 +25,6 @@
 
 @implementation XXUpNoticeView
 
-
-
-
 - (void)awakeFromNib{
     [super awakeFromNib];
    
