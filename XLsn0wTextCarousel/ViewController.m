@@ -23,9 +23,9 @@
 #import "GBTopLineViewModel.h"
 #import "GBTopLineView.h"
 
-@interface ViewController ()<XLsn0wTextCarouselDelegate>
+@interface ViewController ()<XLsn0wTextCarouselDelegate, XLsn0wHeadlineViewDelegate>
 
-@property (nonatomic, weak) XLsn0wHeadlineView *toutiaoView;
+@property (nonatomic, strong) XLsn0wHeadlineView *headlineView;
 
 //@property(nonatomic,strong)NSMutableArray*dataArr;
 //@property (nonatomic,strong) GBTopLineView *TopLineView;
@@ -51,17 +51,14 @@
 //    [newsView startCarousel];
 //    [newsView2 startCarousel];
     
-    [self testToutiaoView];
+    [self drawUI];
 
 }
 
-- (void)testToutiaoView {
-    
-    XLsn0wHeadlineView * toutiao = [[XLsn0wHeadlineView alloc] init];
-    toutiao.bottomScrollView.frame = CGRectMake(100, 100, [[UIScreen mainScreen] bounds].size.width, 60);
-    [self.view addSubview:toutiao];
-    toutiao.backgroundColor = [UIColor redColor];
-    self.toutiaoView = toutiao;
+- (void)drawUI {
+    self.headlineView = [[XLsn0wHeadlineView alloc] initWithFrame:CGRectMake(0, 100, 375, 80)];
+    [self.view addSubview:self.headlineView];
+    self.headlineView.xlsn0w_delegate = self;
     
     ItemObject * item1 = [ItemObject new];
     item1.title = @"最新";
@@ -75,12 +72,12 @@
     item2.title1 = @"公告";
     item2.detail1 = @"往事只能回味";
     
-    self.toutiaoView.items = @[item1, item2];
-    self.toutiaoView.didSelectItemAtIndex = ^(NSUInteger index) {
-        NSLog(@"tap index: %ld", index);
-    };
+    self.headlineView.items = @[item1, item2];
 }
 
+- (void)headlineView:(XLsn0wHeadlineView *)headlineView didSelectItemAtIndex:(NSInteger)index {
+    NSLog(@"%ld",index);
+}
 
 - (void)textCarousel:(XLsn0wTextCarousel *)textCarousel didSelectedIndex:(NSInteger)selectedIndex {
     NSLog(@"%ld",selectedIndex);

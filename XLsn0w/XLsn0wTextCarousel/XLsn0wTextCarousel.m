@@ -13,7 +13,7 @@
 
 #import "Masonry.h"
 
-@interface XLsn0wTextCarousel () <CAAnimationDelegate>
+@interface XLsn0wTextCarousel ()
 
 @end
 
@@ -63,7 +63,7 @@ static int countInt = 0;
     if (countInt >= [self.noticeList count])
         countInt=0;
     CATransition *animation = [CATransition animation];
-    animation.delegate = self;
+//    animation.delegate = self;
     animation.duration = 0.5f ;
     animation.timingFunction = UIViewAnimationCurveEaseInOut;
     animation.fillMode = kCAFillModeForwards;
@@ -90,16 +90,6 @@ static int countInt = 0;
     if (self.noticeList.count != 0) {
       [NSTimer scheduledTimerWithTimeInterval:self.duration target:self selector:@selector(displayNews) userInfo:nil repeats:YES];  
     }
-}
-
-#pragma mark - CAAnimationDelegate
-
-- (void)animationDidStart:(CAAnimation *)anim {
-    
-}
-
-- (void)animationDidStop:(CAAnimation *)anim finished:(BOOL)flag {
-    
 }
 
 @end

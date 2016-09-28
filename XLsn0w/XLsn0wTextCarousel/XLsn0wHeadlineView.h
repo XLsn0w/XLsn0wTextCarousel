@@ -27,7 +27,17 @@
 
 @end
 
+@class XLsn0wHeadlineView;
+
+@protocol XLsn0wHeadlineViewDelegate <NSObject>
+
+- (void)headlineView:(XLsn0wHeadlineView *)headlineView didSelectItemAtIndex:(NSInteger)index;
+
+@end
+
 @interface XLsn0wHeadlineView : UIView
+
+@property (nonatomic, weak) id<XLsn0wHeadlineViewDelegate> xlsn0w_delegate;
 
 @property (nonatomic, copy) NSArray * items;
 @property (nonatomic, assign) BOOL autoscroll;

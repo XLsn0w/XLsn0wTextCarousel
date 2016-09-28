@@ -111,7 +111,7 @@
 
 @end
 
-static int hintViewHeight = 66;
+static int hintViewHeight = 60;
 
 @implementation XLsn0wHeadlineView
 
@@ -124,8 +124,13 @@ static int hintViewHeight = 66;
 
 - (void)drawUI {
     _bottomScrollView = [[UIScrollView alloc] init];
-    _bottomScrollView.frame = CGRectMake(100, 100, [[UIScreen mainScreen] bounds].size.width, hintViewHeight);
     [self addSubview:_bottomScrollView];
+    [_bottomScrollView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.centerY.mas_equalTo(self);
+        make.left.mas_equalTo(100);
+        make.width.mas_equalTo([[UIScreen mainScreen] bounds].size.width-90);
+        make.height.mas_equalTo(hintViewHeight);
+    }];
     _bottomScrollView.showsVerticalScrollIndicator = NO;
     _bottomScrollView.pagingEnabled = YES;
     _bottomScrollView.delegate = self;
@@ -137,10 +142,10 @@ static int hintViewHeight = 66;
     [self addSubview:_leftImageView];
     _leftImageView.image = [UIImage imageNamed:@"leftImageView"];
     [_leftImageView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.centerY.mas_equalTo(_bottomScrollView);
-        make.width.mas_equalTo(55);
-        make.height.mas_equalTo(55);
+        make.top.mas_equalTo(11);
         make.left.mas_equalTo(20);
+        make.width.mas_equalTo(hintViewHeight-10);
+        make.height.mas_equalTo(hintViewHeight-10);
     }];
 }
 
@@ -175,26 +180,25 @@ static int hintViewHeight = 66;
         
         [self.bottomScrollView addSubview:hintView];
         
-        UIButton * btn = [[UIButton alloc] initWithFrame:frame];
-        [btn addTarget:self action:@selector(onBtnPressed:) forControlEvents:UIControlEventTouchUpInside];
-        btn.tag = index % (count / 3);
-        [self.bottomScrollView addSubview:btn];
+        UIButton *textButton = [[UIButton alloc] initWithFrame:frame];
+        [textButton addTarget:self action:@selector(textButtonAction:) forControlEvents:UIControlEventTouchUpInside];
+        textButton.tag = index % (count / 3);
+        [self.bottomScrollView addSubview:textButton];
     }
     
     
     [self setUpTimer];
 }
 
-- (void)onBtnPressed:(UIButton *)sender
-{
+- (void)textButtonAction:(UIButton *)textButton {
     if (self.didSelectItemAtIndex) {
-        self.didSelectItemAtIndex(sender.tag);
+        self.didSelectItemAtIndex(textButton.tag);
     }
+    [self.xlsn0w_delegate headlineView:self didSelectItemAtIndex:textButton.tag];
 }
 
 
--(void)scrollViewDidScroll:(UIScrollView *)scrollView
-{
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView {
     CGFloat pageHeight = hintViewHeight;
     CGFloat periodOffset = pageHeight * (self.items.count / 3);
     CGFloat offsetActivatingMoveToBeginning = pageHeight * ((self.items.count / 3) * 2);
