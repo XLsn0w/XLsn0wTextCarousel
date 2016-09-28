@@ -20,7 +20,7 @@
 #define kMidViewWidth   250
 #define kMidViewHeight  50
 
-#import "GBTopLineView.h"
+#import "XLsn0wTopLineView.h"
 
 @interface ViewController ()<XLsn0wTextCarouselDelegate, XLsn0wHeadlineViewDelegate>
 

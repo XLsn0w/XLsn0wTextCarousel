@@ -11,7 +11,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface GBTopLineView : UIView
+@interface XLsn0wTopLineView : UIView
 
 @property (nonatomic,copy) void (^clickBlock)(NSInteger index);//第几个数据被点击
 
@@ -23,7 +23,9 @@
 
 @end
 
-@interface GBTopLineViewModel : NSObject
+/**************************************************************************************************/
+
+@interface TopLineViewModel : NSObject
 
 @property (nonatomic,copy) NSString *type;
 @property (nonatomic,copy) NSString *title;

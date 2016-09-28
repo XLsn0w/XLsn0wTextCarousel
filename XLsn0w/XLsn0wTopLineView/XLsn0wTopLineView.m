@@ -9,10 +9,9 @@
  *                                                                                           *
  *********************************************************************************************/
 
-#import "GBTopLineView.h"
+#import "XLsn0wTopLineView.h"
 
-@interface GBTopLineView(){
-    
+@interface XLsn0wTopLineView () {
     NSTimer *_timer;     //定时器
     int count;
     int flag; //标识当前是哪个view显示(currentView/hidenView)
@@ -25,9 +24,10 @@
 @property (nonatomic,strong) UIButton *hidenBtn;
 @property (nonatomic,strong) UILabel *hidenLabel;
 @end
-@implementation GBTopLineView
-- (id)initWithFrame:(CGRect)frame
-{
+
+@implementation XLsn0wTopLineView
+
+- (instancetype)initWithFrame:(CGRect)frame {
     self = [super initWithFrame:frame];
     if (self) {
         [self createUI];
@@ -58,7 +58,7 @@
 {
     _dataArr = dataArr;
     NSLog(@"dataArr-->%@",dataArr);
-    GBTopLineViewModel *model = _dataArr[count];
+    TopLineViewModel *model = _dataArr[count];
     [self.currentBtn setTitle:model.type forState:UIControlStateNormal];
     self.currentLabel.text = model.title;
 }
@@ -100,13 +100,13 @@
     }
     
     if (flag == 1) {
-         GBTopLineViewModel*currentModel = _dataArr[count];
+         TopLineViewModel*currentModel = _dataArr[count];
         [self.currentBtn setTitle:currentModel.type forState:UIControlStateNormal];
         self.currentLabel.text = currentModel.title;
     }
     
     if (flag == 0) {
-        GBTopLineViewModel *hienModel = _dataArr[count];
+        TopLineViewModel *hienModel = _dataArr[count];
         [self.hidenBtn setTitle:hienModel.type forState:UIControlStateNormal];
         self.hidenLabel.text = hienModel.title;
     }
@@ -140,9 +140,8 @@
     }
 }
 
-- (void)createCurrentView
-{
-    GBTopLineViewModel *model = _dataArr[count];
+- (void)createCurrentView {
+    TopLineViewModel *model = _dataArr[count];
     
     self.currentView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, self.frame.size.width, self.frame.size.height)];
     [self addSubview:self.currentView];
@@ -207,6 +206,8 @@
 
 @end
 
-@implementation GBTopLineViewModel
+/**************************************************************************************************/
+
+@implementation TopLineViewModel
 
 @end

@@ -15,41 +15,29 @@
 
 @implementation ItemObject
 
-- (instancetype)init
-{
+- (instancetype)init {
     if (self = [super init]) {
         self.title = @"";
         self.detail = @"";
         self.title1 = @"";
         self.detail1 = @"";
     }
-    
     return self;
 }
 
 @end
 
-
-
 @implementation HintView
 
-- (void)setItem:(ItemObject *)item
-{
+- (void)setItem:(ItemObject *)item {
     _item = item;
 }
 
-- (void)drawRect:(CGRect)rect
-{
+- (void)drawRect:(CGRect)rect {
     int leftMargin = 5;
     int topMargin = 3;
     int labelWidth = 40;
     int labelHeight = 18;
-    
-    
-    UILabel * _hintLabel1;
-    UILabel * _hintLabel2;
-    UILabel * _hintDescLabel1;
-    UILabel * _hintDescLabel2;
     
     _hintLabel1 = [[UILabel alloc] init];
     _hintLabel1.textAlignment = NSTextAlignmentCenter;
@@ -97,8 +85,7 @@
     _hintDescLabel2.text = self.item.detail1;
 }
 
-- (void)layoutSubviews
-{
+- (void)layoutSubviews {
     self.backgroundColor = [UIColor whiteColor];
 }
 
@@ -173,12 +160,12 @@ static int hintViewHeight = 60;
     
     for (int index = 0; index < count; index ++) {
         CGRect frame = CGRectMake(0, hintViewHeight * index, [UIScreen mainScreen].bounds.size.width - 72, hintViewHeight);
-        HintView * hintView = [[HintView alloc] init];
-        hintView.frame = frame;
+        _hintView = [[HintView alloc] init];
+        _hintView.frame = frame;
         
-        hintView.item = [self.items objectAtIndex:(index % (count / 3))];
+        _hintView.item = [self.items objectAtIndex:(index % (count / 3))];
         
-        [self.bottomScrollView addSubview:hintView];
+        [self.bottomScrollView addSubview:_hintView];
         
         UIButton *textButton = [[UIButton alloc] initWithFrame:frame];
         [textButton addTarget:self action:@selector(textButtonAction:) forControlEvents:UIControlEventTouchUpInside];

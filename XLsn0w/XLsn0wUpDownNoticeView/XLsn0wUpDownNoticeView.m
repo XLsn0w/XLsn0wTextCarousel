@@ -9,9 +9,9 @@
  *                                                                                           *
  *********************************************************************************************/
 
-#import "XXUpNoticeView.h"
+#import "XLsn0wUpDownNoticeView.h"
 
-@interface XXUpNoticeView()<UITableViewDelegate,UITableViewDataSource>
+@interface XLsn0wUpDownNoticeView () <UITableViewDelegate,UITableViewDataSource>
 
 @property (strong,nonatomic)UITableView *tableView;
 
@@ -23,7 +23,7 @@
 
 @end
 
-@implementation XXUpNoticeView
+@implementation XLsn0wUpDownNoticeView
 
 - (void)awakeFromNib{
     [super awakeFromNib];
@@ -45,7 +45,7 @@
     return _items;
 }
 
-- (void)setDataSourceDelegate:(id<XXUpNoticeViewDataSourceDelegate>)dataSourceDelegate{
+- (void)setDataSourceDelegate:(id<XLsn0wUpDownNoticeViewDataSourceDelegate>)dataSourceDelegate{
     _dataSourceDelegate = dataSourceDelegate;
 
     [self.items removeAllObjects];

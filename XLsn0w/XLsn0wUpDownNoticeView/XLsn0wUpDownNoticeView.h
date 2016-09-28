@@ -11,9 +11,9 @@
 
 #import <UIKit/UIKit.h>
 
-@class XXUpNoticeView;
+@class XLsn0wUpDownNoticeView;
 
-@protocol XXUpNoticeViewDataSourceDelegate <NSObject>
+@protocol XLsn0wUpDownNoticeViewDataSourceDelegate <NSObject>
 
 /**
  *  @brief 代理做过处理 不用代理会加载默认数据 可自行修改
@@ -26,7 +26,7 @@
  *
  *  @return 返回模型数组
  */
-- (NSArray *)itemsOfXXUpNoticeView:(XXUpNoticeView *)noticeView;
+- (NSArray *)itemsOfXXUpNoticeView:(XLsn0wUpDownNoticeView *)noticeView;
 
 /**
  *  @brief 自定义界面
@@ -38,7 +38,7 @@
  *
  *  @return  自定义cell  **cell和self.frame是一样的 注意cell布局根据self.frame来布局**
  */
-- (UITableViewCell *)XXUpNoticeView:(XXUpNoticeView *)noticeView tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath dataSource:(NSMutableArray *)dataSource;
+- (UITableViewCell *)XXUpNoticeView:(XLsn0wUpDownNoticeView *)noticeView tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath dataSource:(NSMutableArray *)dataSource;
 
 /**
  *  @brief 点击对应的notice的触发事件
@@ -46,12 +46,13 @@
  *  @param noticeView self
  *  @param index      index
  */
-- (void)XXUpNoticeView:(XXUpNoticeView *)noticeView didSelectRow:(NSInteger)index;
+- (void)XXUpNoticeView:(XLsn0wUpDownNoticeView *)noticeView didSelectRow:(NSInteger)index;
+
 @end
 
-@interface XXUpNoticeView : UIView
+@interface XLsn0wUpDownNoticeView : UIView
 
-@property (weak, nonatomic) id <XXUpNoticeViewDataSourceDelegate >dataSourceDelegate;
+@property (weak, nonatomic) id<XLsn0wUpDownNoticeViewDataSourceDelegate> dataSourceDelegate;
 
 
 @end

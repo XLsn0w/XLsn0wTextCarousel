@@ -25,6 +25,12 @@
 
 @property (nonatomic, copy) ItemObject * item;
 
+@property (nonatomic, strong) UILabel *hintLabel1;
+@property (nonatomic, strong) UILabel *hintLabel2;
+
+@property (nonatomic, strong) UILabel *hintDescLabel1;
+@property (nonatomic, strong) UILabel *hintDescLabel2;
+
 @end
 
 @class XLsn0wHeadlineView;
@@ -47,5 +53,6 @@
 
 @property (nonatomic, strong) UIScrollView *bottomScrollView;
 @property (nonatomic, strong) UIImageView *leftImageView;
+@property (nonatomic, strong) HintView *hintView;
 
 @end
