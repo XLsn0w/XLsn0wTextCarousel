@@ -11,21 +11,31 @@
 
 #import <UIKit/UIKit.h>
 
-@class XLsn0wTextCarousel;
+@interface ItemObject : NSObject
 
-@protocol XLsn0wTextCarouselDelegate<NSObject>
+@property (nonatomic, strong) NSString *title;
+@property (nonatomic, strong) NSString *detail;
 
-- (void)textCarousel:(XLsn0wTextCarousel *)textCarousel didSelectedIndex:(NSInteger)selectedIndex;
+@property (nonatomic, strong) NSString *title1;
+@property (nonatomic, strong) NSString *detail1;
+@end
+
+
+@interface HintView : UIView
+
+@property (nonatomic, copy) ItemObject * item;
 
 @end
 
-@interface XLsn0wTextCarousel : UIView
+@interface XLsn0wHeadlineView : UIView
 
-@property (nonatomic, strong) UILabel *notice;
-@property (nonatomic, assign) NSTimeInterval duration;
-@property (nonatomic, strong) NSArray *noticeList;
-@property (nonatomic, weak) id<XLsn0wTextCarouselDelegate> xlsn0w_delegate;
+@property (nonatomic, copy) NSArray * items;
+@property (nonatomic, assign) BOOL autoscroll;
+@property (nonatomic, assign) NSTimeInterval timeInterval;
 
-- (void)startCarousel;
+@property (nonatomic, copy) void (^didSelectItemAtIndex)(NSUInteger index);
+
+@property (nonatomic, strong) UIScrollView *bottomScrollView;
+@property (nonatomic, strong) UIImageView *leftImageView;
 
 @end

@@ -19,33 +19,28 @@
 
 @implementation XLsn0wTextCarousel
 
-static int countInt=0;
+static int countInt = 0;
 
 
-- (void)setNoticeList:(NSArray *)noticeList
-{
-
+- (void)setNoticeList:(NSArray *)noticeList {
     if (_noticeList != noticeList) {
         _noticeList = noticeList;
         if (_noticeList.count != 0) {
             _notice.text = _noticeList[0];
         }
-        
     }
 }
 
 - (instancetype)initWithFrame:(CGRect)frame {
-    
     self = [super initWithFrame:frame];
     if (self) {
         self.backgroundColor = [UIColor whiteColor];
         [self initContentView];
     }
-    
     return self;
 }
 
-- (void)initContentView{
+- (void)initContentView {
     self.clipsToBounds = YES;
     self.notice = [UILabel new];
     self.notice.font = [UIFont systemFontOfSize:15.0];
@@ -54,16 +49,12 @@ static int countInt=0;
     [self addSubview:self.notice];
     UITapGestureRecognizer * tap = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(tap:)];
     [self.notice addGestureRecognizer:tap];
-    
-    
 }
 
 - (void)layoutSubviews{
-    
     [self.notice mas_makeConstraints:^(MASConstraintMaker *make) {
         make.edges.equalTo(self);
     }];
-
 }
 
 -(void)displayNews{
@@ -83,20 +74,22 @@ static int countInt=0;
     self.notice.text = self.noticeList[countInt];
 
 }
-- (void)tap:(UITapGestureRecognizer *)tap
-{
-    if (self.delegate && [self.delegate respondsToSelector:@selector(NewsBanner:didSelectIndex:)]) {
-        
-        [_delegate NewsBanner:self didSelectIndex:countInt];
-        
-    }
 
+- (void)tap:(UITapGestureRecognizer *)tap {
+    if (self.xlsn0w_delegate && [self.xlsn0w_delegate respondsToSelector:@selector(textCarousel:didSelectedIndex:)]) {
+        [self.xlsn0w_delegate textCarousel:self didSelectedIndex:countInt];
+    }
 }
+
+/*!
+ * @author XLsn0w
+ *
+ * start to carousel
+ */
 - (void)startCarousel {
     if (self.noticeList.count != 0) {
       [NSTimer scheduledTimerWithTimeInterval:self.duration target:self selector:@selector(displayNews) userInfo:nil repeats:YES];  
     }
-    
 }
 
 #pragma mark - CAAnimationDelegate
