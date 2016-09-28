@@ -16,6 +16,9 @@
 		3537DC071D9AC08300DD1E9B /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3537DC061D9AC08300DD1E9B /* ViewController.m */; };
 		3537DC0A1D9AC15C00DD1E9B /* XLsn0wTextCarousel.podspec in Resources */ = {isa = PBXBuildFile; fileRef = 3537DC091D9AC15C00DD1E9B /* XLsn0wTextCarousel.podspec */; };
 		355CA4251D9B5C9400A5EF67 /* XLsn0wHeadlineView.m in Sources */ = {isa = PBXBuildFile; fileRef = 355CA4241D9B5C9400A5EF67 /* XLsn0wHeadlineView.m */; };
+		355CA42E1D9B650600A5EF67 /* XXUpNoticeView.m in Sources */ = {isa = PBXBuildFile; fileRef = 355CA42D1D9B650600A5EF67 /* XXUpNoticeView.m */; };
+		355CA4331D9B654300A5EF67 /* GBTopLineView.m in Sources */ = {isa = PBXBuildFile; fileRef = 355CA4301D9B654300A5EF67 /* GBTopLineView.m */; };
+		355CA4341D9B654300A5EF67 /* GBTopLineViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 355CA4321D9B654300A5EF67 /* GBTopLineViewModel.m */; };
 		392CA9C41BB928746EB75594 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B9237D3009DA9823E5C18C92 /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -37,6 +40,12 @@
 		3537DC0B1D9AC1C700DD1E9B /* XLsn0wTextCarouselKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XLsn0wTextCarouselKit.h; sourceTree = "<group>"; };
 		355CA4231D9B5C9400A5EF67 /* XLsn0wHeadlineView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XLsn0wHeadlineView.h; sourceTree = "<group>"; };
 		355CA4241D9B5C9400A5EF67 /* XLsn0wHeadlineView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XLsn0wHeadlineView.m; sourceTree = "<group>"; };
+		355CA42C1D9B650600A5EF67 /* XXUpNoticeView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XXUpNoticeView.h; sourceTree = "<group>"; };
+		355CA42D1D9B650600A5EF67 /* XXUpNoticeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XXUpNoticeView.m; sourceTree = "<group>"; };
+		355CA42F1D9B654300A5EF67 /* GBTopLineView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GBTopLineView.h; sourceTree = "<group>"; };
+		355CA4301D9B654300A5EF67 /* GBTopLineView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GBTopLineView.m; sourceTree = "<group>"; };
+		355CA4311D9B654300A5EF67 /* GBTopLineViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GBTopLineViewModel.h; sourceTree = "<group>"; };
+		355CA4321D9B654300A5EF67 /* GBTopLineViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GBTopLineViewModel.m; sourceTree = "<group>"; };
 		B9237D3009DA9823E5C18C92 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		F01838CE8D84A8986D1BCF32 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -113,6 +122,12 @@
 				3537DC041D9AC00300DD1E9B /* XLsn0wTextCarousel.m */,
 				355CA4231D9B5C9400A5EF67 /* XLsn0wHeadlineView.h */,
 				355CA4241D9B5C9400A5EF67 /* XLsn0wHeadlineView.m */,
+				355CA42C1D9B650600A5EF67 /* XXUpNoticeView.h */,
+				355CA42D1D9B650600A5EF67 /* XXUpNoticeView.m */,
+				355CA42F1D9B654300A5EF67 /* GBTopLineView.h */,
+				355CA4301D9B654300A5EF67 /* GBTopLineView.m */,
+				355CA4311D9B654300A5EF67 /* GBTopLineViewModel.h */,
+				355CA4321D9B654300A5EF67 /* GBTopLineViewModel.m */,
 			);
 			path = XLsn0wTextCarousel;
 			sourceTree = "<group>";
@@ -257,10 +272,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				3537DBEF1D9ABF9100DD1E9B /* AppDelegate.m in Sources */,
+				355CA4331D9B654300A5EF67 /* GBTopLineView.m in Sources */,
 				3537DC051D9AC00300DD1E9B /* XLsn0wTextCarousel.m in Sources */,
 				3537DC071D9AC08300DD1E9B /* ViewController.m in Sources */,
 				3537DBEC1D9ABF9100DD1E9B /* main.m in Sources */,
 				355CA4251D9B5C9400A5EF67 /* XLsn0wHeadlineView.m in Sources */,
+				355CA42E1D9B650600A5EF67 /* XXUpNoticeView.m in Sources */,
+				355CA4341D9B654300A5EF67 /* GBTopLineViewModel.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
