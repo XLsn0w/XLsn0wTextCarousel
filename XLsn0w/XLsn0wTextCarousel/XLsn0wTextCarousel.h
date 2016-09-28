@@ -24,7 +24,7 @@
 @property (nonatomic, strong) UILabel *notice;
 @property (nonatomic, assign) NSTimeInterval duration;
 @property (nonatomic, strong) NSArray *noticeList;
-@property (nonatomic, weak) id<XLsn0wTextCarouselDelegate> xlsn0w_delegate;
+@property (nonatomic, weak) id<XLsn0wTextCarouselDelegate> xlsn0wDelegate;
 
 - (void)startCarousel;
 

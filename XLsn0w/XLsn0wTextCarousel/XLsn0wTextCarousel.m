@@ -76,8 +76,8 @@ static int countInt = 0;
 }
 
 - (void)tap:(UITapGestureRecognizer *)tap {
-    if (self.xlsn0w_delegate && [self.xlsn0w_delegate respondsToSelector:@selector(textCarousel:didSelectedIndex:)]) {
-        [self.xlsn0w_delegate textCarousel:self didSelectedIndex:countInt];
+    if (self.xlsn0wDelegate && [self.xlsn0wDelegate respondsToSelector:@selector(textCarousel:didSelectedIndex:)]) {
+        [self.xlsn0wDelegate textCarousel:self didSelectedIndex:countInt];
     }
 }
 

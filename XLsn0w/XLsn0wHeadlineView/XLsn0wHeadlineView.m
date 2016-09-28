@@ -43,8 +43,9 @@
     _hintLabel1.textAlignment = NSTextAlignmentCenter;
     _hintLabel1.layer.cornerRadius = 4;
     _hintLabel1.layer.masksToBounds = YES;
-    _hintLabel1.layer.borderColor = [UIColor redColor].CGColor;
     _hintLabel1.layer.borderWidth = 1;
+    _hintLabel1.layer.borderColor = [UIColor orangeColor].CGColor;
+    _hintLabel1.textColor = [UIColor orangeColor];
     _hintLabel1.font = [UIFont systemFontOfSize:14];
     [self addSubview:_hintLabel1];
     
@@ -57,8 +58,9 @@
     _hintLabel2.textAlignment = NSTextAlignmentCenter;
     _hintLabel2.layer.cornerRadius = 4;
     _hintLabel2.layer.masksToBounds = YES;
-    _hintLabel2.layer.borderColor = [UIColor redColor].CGColor;
     _hintLabel2.layer.borderWidth = 1;
+    _hintLabel2.layer.borderColor = [UIColor blueColor].CGColor;
+    _hintLabel2.textColor = [UIColor blueColor];
     _hintLabel2.font = [UIFont systemFontOfSize:14];
     [self addSubview:_hintLabel2];
     
@@ -114,7 +116,7 @@ static int hintViewHeight = 60;
     [self addSubview:_bottomScrollView];
     [_bottomScrollView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.centerY.mas_equalTo(self);
-        make.left.mas_equalTo(100);
+        make.left.mas_equalTo(20*2+(hintViewHeight-10));
         make.width.mas_equalTo([[UIScreen mainScreen] bounds].size.width-90);
         make.height.mas_equalTo(hintViewHeight);
     }];
@@ -153,10 +155,10 @@ static int hintViewHeight = 60;
 }
 
 - (void)initSelf {
+    
     int count = (int)[self.items count];
     
     self.bottomScrollView.contentSize = CGSizeMake(0, hintViewHeight * count);
-    
     
     for (int index = 0; index < count; index ++) {
         CGRect frame = CGRectMake(0, hintViewHeight * index, [UIScreen mainScreen].bounds.size.width - 72, hintViewHeight);
@@ -169,7 +171,7 @@ static int hintViewHeight = 60;
         
         UIButton *textButton = [[UIButton alloc] initWithFrame:frame];
         [textButton addTarget:self action:@selector(textButtonAction:) forControlEvents:UIControlEventTouchUpInside];
-        textButton.tag = index % (count / 3);
+        textButton.tag = index;
         [self.bottomScrollView addSubview:textButton];
     }
     
@@ -178,10 +180,17 @@ static int hintViewHeight = 60;
 }
 
 - (void)textButtonAction:(UIButton *)textButton {
+    int count = (int)[self.items count];
+    int tag = (int)(textButton.tag);
+    int selectedIndex = tag % (count / 3);
+    
     if (self.didSelectItemAtIndex) {
-        self.didSelectItemAtIndex(textButton.tag);
+        self.didSelectItemAtIndex(selectedIndex);
     }
-    [self.xlsn0w_delegate headlineView:self didSelectItemAtIndex:textButton.tag];
+    
+ 
+    
+    [self.xlsn0wDelegate textButtonTag:tag selectedItem:[self.items objectAtIndex:tag] didSelectItemAtIndex:selectedIndex];
 }
 
 

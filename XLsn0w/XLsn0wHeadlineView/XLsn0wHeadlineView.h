@@ -37,15 +37,15 @@
 
 @protocol XLsn0wHeadlineViewDelegate <NSObject>
 
-- (void)headlineView:(XLsn0wHeadlineView *)headlineView didSelectItemAtIndex:(NSInteger)index;
+- (void)textButtonTag:(NSInteger)textButtonTag selectedItem:(ItemObject *)selectedItem didSelectItemAtIndex:(NSInteger)index;
 
 @end
 
 @interface XLsn0wHeadlineView : UIView
 
-@property (nonatomic, weak) id<XLsn0wHeadlineViewDelegate> xlsn0w_delegate;
+@property (nonatomic, weak) id<XLsn0wHeadlineViewDelegate> xlsn0wDelegate;
 
-@property (nonatomic, copy) NSArray * items;
+@property (nonatomic, copy) NSArray *items;
 @property (nonatomic, assign) BOOL autoscroll;
 @property (nonatomic, assign) NSTimeInterval timeInterval;
 

@@ -26,6 +26,9 @@
 
 @property (nonatomic, strong) XLsn0wHeadlineView *headlineView;
 
+@property (nonatomic, strong) ItemObject *item1;
+@property (nonatomic, strong) ItemObject *item2;
+
 //@property(nonatomic,strong)NSMutableArray*dataArr;
 //@property (nonatomic,strong) GBTopLineView *TopLineView;
 
@@ -57,25 +60,34 @@
 - (void)drawUI {
     self.headlineView = [[XLsn0wHeadlineView alloc] initWithFrame:CGRectMake(0, 100, 375, 80)];
     [self.view addSubview:self.headlineView];
-    self.headlineView.xlsn0w_delegate = self;
+    self.headlineView.xlsn0wDelegate = self;
     
-    ItemObject * item1 = [ItemObject new];
-    item1.title = @"最新";
-    item1.detail = @"和谐社会，你懂的";
-    item1.title1 = @"头条";
-    item1.detail1 = @"友谊的小船，不能随便翻";
+   _item1 = [ItemObject new];
+    _item1.title = @"最新";
+    _item1.detail = @"第一排第一个";
+    _item1.title1 = @"头条";
+    _item1.detail1 = @"第一排第二个";
     
-    ItemObject * item2 = [ItemObject new];
-    item2.title = @"头条";
-    item2.detail = @"时光已过永不回";
-    item2.title1 = @"公告";
-    item2.detail1 = @"往事只能回味";
+  _item2 = [ItemObject new];
+    _item2.title = @"头条";
+    _item2.detail = @"第二排第一个";
+    _item2.title1 = @"公告";
+    _item2.detail1 = @"第二排第二个";
     
-    self.headlineView.items = @[item1, item2];
+    self.headlineView.items = @[_item1, _item2];
 }
 
-- (void)headlineView:(XLsn0wHeadlineView *)headlineView didSelectItemAtIndex:(NSInteger)index {
-    NSLog(@"%ld",index);
+- (void)textButtonTag:(NSInteger)textButtonTag selectedItem:(ItemObject *)selectedItem didSelectItemAtIndex:(NSInteger)index {
+
+    
+//
+//    NSLog(@"%@", selectedItem.detail);
+//    NSLog(@"%@", selectedItem.detail1);
+//    
+    
+    NSLog(@"textButtonTag===%ld", textButtonTag);
+    NSLog(@"index===%ld", index);
+    
 }
 
 - (void)textCarousel:(XLsn0wTextCarousel *)textCarousel didSelectedIndex:(NSInteger)selectedIndex {
