@@ -26,10 +26,12 @@
 @property (nonatomic, copy) ItemObject * item;
 
 @property (nonatomic, strong) UILabel *hintLabel1;
-@property (nonatomic, strong) UILabel *hintLabel2;
-
 @property (nonatomic, strong) UILabel *hintDescLabel1;
+@property (nonatomic, strong) UIButton *describeButton1;
+
+@property (nonatomic, strong) UILabel *hintLabel2;
 @property (nonatomic, strong) UILabel *hintDescLabel2;
+@property (nonatomic, strong) UIButton *describeButton2;
 
 @end
 
@@ -37,7 +39,8 @@
 
 @protocol XLsn0wHeadlineViewDelegate <NSObject>
 
-- (void)textButtonTag:(NSInteger)textButtonTag selectedItem:(ItemObject *)selectedItem didSelectItemAtIndex:(NSInteger)index;
+- (void)upTextButtonTag:(NSInteger)textButtonTag selectedItem:(ItemObject *)selectedItem selectedItemIndex:(NSInteger)selectedItemIndex;
+- (void)downTextButtonTag:(NSInteger)textButtonTag selectedItem:(ItemObject *)selectedItem selectedItemIndex:(NSInteger)selectedItemIndex;
 
 @end
 

@@ -61,14 +61,15 @@
     self.headlineView = [[XLsn0wHeadlineView alloc] initWithFrame:CGRectMake(0, 100, 375, 80)];
     [self.view addSubview:self.headlineView];
     self.headlineView.xlsn0wDelegate = self;
+    self.headlineView.timeInterval = 5;
     
-   _item1 = [ItemObject new];
+    _item1 = [ItemObject new];
     _item1.title = @"最新";
     _item1.detail = @"第一排第一个";
     _item1.title1 = @"头条";
     _item1.detail1 = @"第一排第二个";
     
-  _item2 = [ItemObject new];
+    _item2 = [ItemObject new];
     _item2.title = @"头条";
     _item2.detail = @"第二排第一个";
     _item2.title1 = @"公告";
@@ -77,7 +78,7 @@
     self.headlineView.items = @[_item1, _item2];
 }
 
-- (void)textButtonTag:(NSInteger)textButtonTag selectedItem:(ItemObject *)selectedItem didSelectItemAtIndex:(NSInteger)index {
+- (void)upTextButtonTag:(NSInteger)textButtonTag selectedItem:(ItemObject *)selectedItem selectedItemIndex:(NSInteger)selectedItemIndex {
 
     
 //
@@ -86,7 +87,20 @@
 //    
     
     NSLog(@"textButtonTag===%ld", textButtonTag);
-    NSLog(@"index===%ld", index);
+    NSLog(@"selectedItemIndex===%ld", selectedItemIndex);
+    
+}
+
+- (void)downTextButtonTag:(NSInteger)textButtonTag selectedItem:(ItemObject *)selectedItem selectedItemIndex:(NSInteger)selectedItemIndex {
+    
+    
+    //
+    //    NSLog(@"%@", selectedItem.detail);
+    //    NSLog(@"%@", selectedItem.detail1);
+    //
+    
+    NSLog(@"textButtonTag===%ld", textButtonTag);
+    NSLog(@"selectedItemIndex===%ld", selectedItemIndex);
     
 }
 

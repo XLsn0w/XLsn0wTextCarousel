@@ -49,11 +49,6 @@
     _hintLabel1.font = [UIFont systemFontOfSize:14];
     [self addSubview:_hintLabel1];
     
-    _hintDescLabel1 = [[UILabel alloc] init];
-    _hintDescLabel1.font = [UIFont systemFontOfSize:14];
-    [self addSubview:_hintDescLabel1];
-    
-    
     _hintLabel2 = [[UILabel alloc] init];
     _hintLabel2.textAlignment = NSTextAlignmentCenter;
     _hintLabel2.layer.cornerRadius = 4;
@@ -64,18 +59,25 @@
     _hintLabel2.font = [UIFont systemFontOfSize:14];
     [self addSubview:_hintLabel2];
     
+    /**********************3*****************************************************/
+    
+    _hintDescLabel1 = [[UILabel alloc] init];
+    _hintDescLabel1.font = [UIFont systemFontOfSize:14];
+    [self addSubview:_hintDescLabel1];
+    
     _hintDescLabel2 = [[UILabel alloc] init];
     _hintDescLabel2.font = [UIFont systemFontOfSize:14];
     [self addSubview:_hintDescLabel2];
     
     
     _hintLabel1.frame = CGRectMake(leftMargin, topMargin, labelWidth, labelHeight);
+    _hintLabel2.frame = CGRectMake(leftMargin, CGRectGetHeight(rect) / 2 + topMargin, labelWidth, labelHeight);
+    
     _hintDescLabel1.frame = CGRectMake(leftMargin + labelWidth + 10,
                                        topMargin,
                                        CGRectGetWidth(rect) - (leftMargin + labelWidth + 10),
                                        labelHeight);
     
-    _hintLabel2.frame = CGRectMake(leftMargin, CGRectGetHeight(rect) / 2 + topMargin, labelWidth, labelHeight);
     _hintDescLabel2.frame = CGRectMake(leftMargin + labelWidth + 10,
                                        CGRectGetHeight(rect) / 2 + topMargin,
                                        CGRectGetWidth(rect) - (leftMargin + labelWidth + 10),
@@ -143,7 +145,7 @@ static int hintViewHeight = 60;
     if (items.count == 0) return;
     
     NSMutableArray *mutableItems = [[NSMutableArray alloc] init];
-    for (NSUInteger i = 0; i < 3; i++) {
+    for (int i = 0; i < 3; i++) {
         [mutableItems addObjectsFromArray:items];
     }
     
@@ -160,26 +162,40 @@ static int hintViewHeight = 60;
     
     self.bottomScrollView.contentSize = CGSizeMake(0, hintViewHeight * count);
     
-    for (int index = 0; index < count; index ++) {
-        CGRect frame = CGRectMake(0, hintViewHeight * index, [UIScreen mainScreen].bounds.size.width - 72, hintViewHeight);
+    for (int i = 0; i < count; i ++) {
+        
         _hintView = [[HintView alloc] init];
-        _hintView.frame = frame;
-        
-        _hintView.item = [self.items objectAtIndex:(index % (count / 3))];
-        
         [self.bottomScrollView addSubview:_hintView];
+        CGRect frame = CGRectMake(0, hintViewHeight * i, [UIScreen mainScreen].bounds.size.width - 72, hintViewHeight);
+        _hintView.frame = frame;
+        _hintView.item = [self.items objectAtIndex:(i % (count / 3))];
+        _hintView.backgroundColor = [UIColor redColor];
         
-        UIButton *textButton = [[UIButton alloc] initWithFrame:frame];
-        [textButton addTarget:self action:@selector(textButtonAction:) forControlEvents:UIControlEventTouchUpInside];
-        textButton.tag = index;
-        [self.bottomScrollView addSubview:textButton];
+   
+        
+    }
+    
+    for (int k = 0; k < 2; k ++) {
+        CGRect frame = CGRectMake(0, hintViewHeight*k, self.hintView.hintDescLabel1.frame.size.width, self.hintView.hintDescLabel1.frame.size.height);
+        UIButton *textButton1 = [[UIButton alloc] initWithFrame:frame];
+        [self.bottomScrollView addSubview:textButton1];
+        [textButton1 addTarget:self action:@selector(textButton1Action:) forControlEvents:UIControlEventTouchUpInside];
+        textButton1.tag = k;
+    }
+    
+    for (int j = 0; j < 2; j ++) {
+        CGRect frame = CGRectMake(0, hintViewHeight * j, self.hintView.hintDescLabel2.frame.size.width, self.hintView.hintDescLabel2.frame.size.height);
+        UIButton *textButton2 = [[UIButton alloc] initWithFrame:frame];
+        [self.bottomScrollView addSubview:textButton2];
+        [textButton2 addTarget:self action:@selector(textButton2Action:) forControlEvents:UIControlEventTouchUpInside];
+        textButton2.tag = j;
     }
     
     
-    [self setUpTimer];
+    [self addTimer];
 }
 
-- (void)textButtonAction:(UIButton *)textButton {
+- (void)textButton1Action:(UIButton *)textButton {
     int count = (int)[self.items count];
     int tag = (int)(textButton.tag);
     int selectedIndex = tag % (count / 3);
@@ -190,7 +206,21 @@ static int hintViewHeight = 60;
     
  
     
-    [self.xlsn0wDelegate textButtonTag:tag selectedItem:[self.items objectAtIndex:tag] didSelectItemAtIndex:selectedIndex];
+    [self.xlsn0wDelegate upTextButtonTag:tag selectedItem:[self.items objectAtIndex:tag] selectedItemIndex:selectedIndex];
+}
+
+- (void)textButton2Action:(UIButton *)textButton {
+    int count = (int)[self.items count];
+    int tag = (int)(textButton.tag);
+    int selectedIndex = tag % (count / 3);
+    
+    if (self.didSelectItemAtIndex) {
+        self.didSelectItemAtIndex(selectedIndex);
+    }
+    
+    
+    
+    [self.xlsn0wDelegate downTextButtonTag:tag selectedItem:[self.items objectAtIndex:tag] selectedItemIndex:selectedIndex];
 }
 
 
@@ -210,7 +240,7 @@ static int hintViewHeight = 60;
 
 #pragma mark - Timer
 
-- (void)setUpTimer {
+- (void)addTimer {
     [self tearDownTimer];
     
     if (!self.autoscroll) return;
@@ -237,7 +267,7 @@ static int hintViewHeight = 60;
 
 - (void)setTimeInterval:(NSTimeInterval)timeInterval {
     _timeInterval = timeInterval;
-    [self setUpTimer];
+    [self addTimer];
 }
 
 @end
