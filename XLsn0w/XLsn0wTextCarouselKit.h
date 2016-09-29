@@ -10,8 +10,10 @@
  *********************************************************************************************/
 
 #import "XLsn0wTextCarousel.h"
+#import "TextInfoView.h"
+#import "DataModel.h"
+
 #import "XLsn0wHeadlineView.h"
-#import "XLsn0wTopLineView.h"
 #import "XLsn0wUpDownNoticeView.h"
 
 /*********************************************************************************************

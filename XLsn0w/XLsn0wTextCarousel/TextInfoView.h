@@ -11,23 +11,20 @@
 
 #import <UIKit/UIKit.h>
 
-@interface XLsn0wTopLineView : UIView
+#import "DataModel.h"
 
-@property (nonatomic,copy) void (^clickBlock)(NSInteger index);//第几个数据被点击
+@protocol TextInfoViewDelegate <NSObject>
 
-//数组内部数据需要是GBTopLineViewModel类型
-- (void)setVerticalShowDataArr:(NSMutableArray *)dataArr;
-
-//停止定时器(界面消失前必须要停止定时器否则内存泄漏)
-- (void)stopTimer;
+- (void)handleTopEventWithURLString:(NSString *)URLString;
+- (void)handleBottomEventWithURLString:(NSString *)URLString;
 
 @end
 
-/**************************************************************************************************/
+@interface TextInfoView : UIView
 
-@interface TopLineViewModel : NSObject
+@property (nonatomic, weak) id<TextInfoViewDelegate> xlsn0wDelegate;
 
-@property (nonatomic,copy) NSString *type;
-@property (nonatomic,copy) NSString *title;
+@property (nonatomic, strong) DataModel *topModel;
+@property (nonatomic, strong) DataModel *bottomModel;
 
 @end

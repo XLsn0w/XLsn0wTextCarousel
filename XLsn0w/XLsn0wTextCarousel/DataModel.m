@@ -9,19 +9,16 @@
  *                                                                                           *
  *********************************************************************************************/
 
-#import <UIKit/UIKit.h>
-
-#import "TextInfoView.h"
 #import "DataModel.h"
 
-@interface XLsn0wTextCarousel : UIView
+@implementation DataModel
 
-@property (nonatomic, strong) NSMutableArray *dataArr;
-
-@property (nonatomic,strong) TextInfoView *currentTextInfoView;
-@property (nonatomic,strong) TextInfoView *hiddenTextInfoView;
-
-//停止定时器(界面消失前必须要停止定时器否则内存泄漏)
-- (void)stopTimer;
++ (instancetype)dataModelWithTitle:(NSString *)title url:(NSString *)url type:(NSString *)type{
+    DataModel *model = [[DataModel alloc] init];
+    model.title = title;
+    model.link_url = url;
+    model.type = type;
+    return model;
+}
 
 @end

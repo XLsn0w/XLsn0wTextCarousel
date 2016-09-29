@@ -12,11 +12,12 @@
 		3537DBF51D9ABF9100DD1E9B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3537DBF31D9ABF9100DD1E9B /* Main.storyboard */; };
 		3537DBF71D9ABF9100DD1E9B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3537DBF61D9ABF9100DD1E9B /* Assets.xcassets */; };
 		3537DBFA1D9ABF9100DD1E9B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3537DBF81D9ABF9100DD1E9B /* LaunchScreen.storyboard */; };
-		3537DC071D9AC08300DD1E9B /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3537DC061D9AC08300DD1E9B /* ViewController.m */; };
 		3537DC0A1D9AC15C00DD1E9B /* XLsn0wTextCarousel.podspec in Resources */ = {isa = PBXBuildFile; fileRef = 3537DC091D9AC15C00DD1E9B /* XLsn0wTextCarousel.podspec */; };
-		35F92C661D9B9C04007A054F /* XLsn0wTextCarousel.m in Sources */ = {isa = PBXBuildFile; fileRef = 35F92C621D9B9C04007A054F /* XLsn0wTextCarousel.m */; };
+		35B5B2481D9CBC2100B9F2BD /* TextInfoView.m in Sources */ = {isa = PBXBuildFile; fileRef = 35B5B2431D9CBC2100B9F2BD /* TextInfoView.m */; };
+		35B5B2491D9CBC2100B9F2BD /* DataModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 35B5B2451D9CBC2100B9F2BD /* DataModel.m */; };
+		35B5B24A1D9CBC2100B9F2BD /* XLsn0wTextCarousel.m in Sources */ = {isa = PBXBuildFile; fileRef = 35B5B2471D9CBC2100B9F2BD /* XLsn0wTextCarousel.m */; };
+		35B5B24C1D9CBC5900B9F2BD /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 35B5B24B1D9CBC5900B9F2BD /* ViewController.m */; };
 		35F92C671D9B9C04007A054F /* XLsn0wHeadlineView.m in Sources */ = {isa = PBXBuildFile; fileRef = 35F92C651D9B9C04007A054F /* XLsn0wHeadlineView.m */; };
-		35F92C6B1D9B9C24007A054F /* XLsn0wTopLineView.m in Sources */ = {isa = PBXBuildFile; fileRef = 35F92C6A1D9B9C24007A054F /* XLsn0wTopLineView.m */; };
 		35F92C6F1D9B9C4E007A054F /* XLsn0wUpDownNoticeView.m in Sources */ = {isa = PBXBuildFile; fileRef = 35F92C6E1D9B9C4E007A054F /* XLsn0wUpDownNoticeView.m */; };
 		392CA9C41BB928746EB75594 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B9237D3009DA9823E5C18C92 /* libPods.a */; };
 /* End PBXBuildFile section */
@@ -32,15 +33,17 @@
 		3537DBF61D9ABF9100DD1E9B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3537DBF91D9ABF9100DD1E9B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3537DBFB1D9ABF9100DD1E9B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		3537DC061D9AC08300DD1E9B /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		3537DC091D9AC15C00DD1E9B /* XLsn0wTextCarousel.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = XLsn0wTextCarousel.podspec; sourceTree = "<group>"; };
 		3537DC0B1D9AC1C700DD1E9B /* XLsn0wTextCarouselKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XLsn0wTextCarouselKit.h; sourceTree = "<group>"; };
-		35F92C611D9B9C04007A054F /* XLsn0wTextCarousel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XLsn0wTextCarousel.h; sourceTree = "<group>"; };
-		35F92C621D9B9C04007A054F /* XLsn0wTextCarousel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XLsn0wTextCarousel.m; sourceTree = "<group>"; };
+		35B5B2421D9CBC2100B9F2BD /* TextInfoView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TextInfoView.h; sourceTree = "<group>"; };
+		35B5B2431D9CBC2100B9F2BD /* TextInfoView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TextInfoView.m; sourceTree = "<group>"; };
+		35B5B2441D9CBC2100B9F2BD /* DataModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataModel.h; sourceTree = "<group>"; };
+		35B5B2451D9CBC2100B9F2BD /* DataModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataModel.m; sourceTree = "<group>"; };
+		35B5B2461D9CBC2100B9F2BD /* XLsn0wTextCarousel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XLsn0wTextCarousel.h; sourceTree = "<group>"; };
+		35B5B2471D9CBC2100B9F2BD /* XLsn0wTextCarousel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XLsn0wTextCarousel.m; sourceTree = "<group>"; };
+		35B5B24B1D9CBC5900B9F2BD /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		35F92C641D9B9C04007A054F /* XLsn0wHeadlineView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XLsn0wHeadlineView.h; sourceTree = "<group>"; };
 		35F92C651D9B9C04007A054F /* XLsn0wHeadlineView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XLsn0wHeadlineView.m; sourceTree = "<group>"; };
-		35F92C691D9B9C24007A054F /* XLsn0wTopLineView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XLsn0wTopLineView.h; sourceTree = "<group>"; };
-		35F92C6A1D9B9C24007A054F /* XLsn0wTopLineView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XLsn0wTopLineView.m; sourceTree = "<group>"; };
 		35F92C6D1D9B9C4E007A054F /* XLsn0wUpDownNoticeView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XLsn0wUpDownNoticeView.h; sourceTree = "<group>"; };
 		35F92C6E1D9B9C4E007A054F /* XLsn0wUpDownNoticeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XLsn0wUpDownNoticeView.m; sourceTree = "<group>"; };
 		B9237D3009DA9823E5C18C92 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -84,7 +87,7 @@
 				3537DBED1D9ABF9100DD1E9B /* AppDelegate.h */,
 				3537DBEE1D9ABF9100DD1E9B /* AppDelegate.m */,
 				3537DBF01D9ABF9100DD1E9B /* ViewController.h */,
-				3537DC061D9AC08300DD1E9B /* ViewController.m */,
+				35B5B24B1D9CBC5900B9F2BD /* ViewController.m */,
 				3537DBF31D9ABF9100DD1E9B /* Main.storyboard */,
 				3537DBF61D9ABF9100DD1E9B /* Assets.xcassets */,
 				3537DBF81D9ABF9100DD1E9B /* LaunchScreen.storyboard */,
@@ -107,9 +110,8 @@
 			children = (
 				3537DC091D9AC15C00DD1E9B /* XLsn0wTextCarousel.podspec */,
 				3537DC0B1D9AC1C700DD1E9B /* XLsn0wTextCarouselKit.h */,
-				35F92C631D9B9C04007A054F /* XLsn0wHeadlineView */,
 				35F92C601D9B9C04007A054F /* XLsn0wTextCarousel */,
-				35F92C681D9B9C24007A054F /* XLsn0wTopLineView */,
+				35F92C631D9B9C04007A054F /* XLsn0wHeadlineView */,
 				35F92C6C1D9B9C4E007A054F /* XLsn0wUpDownNoticeView */,
 			);
 			path = XLsn0w;
@@ -118,8 +120,12 @@
 		35F92C601D9B9C04007A054F /* XLsn0wTextCarousel */ = {
 			isa = PBXGroup;
 			children = (
-				35F92C611D9B9C04007A054F /* XLsn0wTextCarousel.h */,
-				35F92C621D9B9C04007A054F /* XLsn0wTextCarousel.m */,
+				35B5B2461D9CBC2100B9F2BD /* XLsn0wTextCarousel.h */,
+				35B5B2471D9CBC2100B9F2BD /* XLsn0wTextCarousel.m */,
+				35B5B2421D9CBC2100B9F2BD /* TextInfoView.h */,
+				35B5B2431D9CBC2100B9F2BD /* TextInfoView.m */,
+				35B5B2441D9CBC2100B9F2BD /* DataModel.h */,
+				35B5B2451D9CBC2100B9F2BD /* DataModel.m */,
 			);
 			path = XLsn0wTextCarousel;
 			sourceTree = "<group>";
@@ -131,15 +137,6 @@
 				35F92C651D9B9C04007A054F /* XLsn0wHeadlineView.m */,
 			);
 			path = XLsn0wHeadlineView;
-			sourceTree = "<group>";
-		};
-		35F92C681D9B9C24007A054F /* XLsn0wTopLineView */ = {
-			isa = PBXGroup;
-			children = (
-				35F92C691D9B9C24007A054F /* XLsn0wTopLineView.h */,
-				35F92C6A1D9B9C24007A054F /* XLsn0wTopLineView.m */,
-			);
-			path = XLsn0wTopLineView;
 			sourceTree = "<group>";
 		};
 		35F92C6C1D9B9C4E007A054F /* XLsn0wUpDownNoticeView */ = {
@@ -291,12 +288,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				3537DBEF1D9ABF9100DD1E9B /* AppDelegate.m in Sources */,
-				3537DC071D9AC08300DD1E9B /* ViewController.m in Sources */,
+				35B5B24A1D9CBC2100B9F2BD /* XLsn0wTextCarousel.m in Sources */,
+				35B5B24C1D9CBC5900B9F2BD /* ViewController.m in Sources */,
 				35F92C6F1D9B9C4E007A054F /* XLsn0wUpDownNoticeView.m in Sources */,
 				35F92C671D9B9C04007A054F /* XLsn0wHeadlineView.m in Sources */,
-				35F92C661D9B9C04007A054F /* XLsn0wTextCarousel.m in Sources */,
+				35B5B2491D9CBC2100B9F2BD /* DataModel.m in Sources */,
+				35B5B2481D9CBC2100B9F2BD /* TextInfoView.m in Sources */,
 				3537DBEC1D9ABF9100DD1E9B /* main.m in Sources */,
-				35F92C6B1D9B9C24007A054F /* XLsn0wTopLineView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
