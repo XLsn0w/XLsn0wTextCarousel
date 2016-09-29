@@ -9,15 +9,15 @@
  *                                                                                           *
  *********************************************************************************************/
 
-#import "DataModel.h"
+#import "DataSourceModel.h"
 
-@implementation DataModel
+@implementation DataSourceModel
 
-+ (instancetype)dataModelWithTitle:(NSString *)title url:(NSString *)url type:(NSString *)type{
-    DataModel *model = [[DataModel alloc] init];
-    model.title = title;
-    model.link_url = url;
++ (instancetype)dataSourceModelWithType:(NSString *)type title:(NSString *)title URLString:(NSString *)URLString {
+    DataSourceModel *model = [[DataSourceModel alloc] init];
     model.type = type;
+    model.title = title;
+    model.URLString = URLString;
     return model;
 }
 

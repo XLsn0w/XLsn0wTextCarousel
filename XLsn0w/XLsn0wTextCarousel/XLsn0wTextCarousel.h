@@ -12,11 +12,11 @@
 #import <UIKit/UIKit.h>
 
 #import "TextInfoView.h"
-#import "DataModel.h"
+#import "DataSourceModel.h"
 
 @interface XLsn0wTextCarousel : UIView
 
-@property (nonatomic, strong) NSMutableArray *dataArr;
+@property (nonatomic, strong) NSMutableArray *dataSourceArray;
 
 @property (nonatomic,strong) TextInfoView *currentTextInfoView;
 @property (nonatomic,strong) TextInfoView *hiddenTextInfoView;

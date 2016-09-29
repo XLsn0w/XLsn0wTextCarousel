@@ -11,12 +11,12 @@
 
 #import <Foundation/Foundation.h>
 
-@interface DataModel : NSObject
+@interface DataSourceModel : NSObject
 
-@property (nonatomic, strong) NSString *title;
-@property (nonatomic, strong) NSString *link_url;
 @property (nonatomic,copy) NSString *type;
+@property (nonatomic, strong) NSString *title;
+@property (nonatomic, strong) NSString *URLString;
 
-+ (instancetype)dataModelWithTitle:(NSString *)title url:(NSString *)url type:(NSString *)type;
++ (instancetype)dataSourceModelWithType:(NSString *)type title:(NSString *)title URLString:(NSString *)URLString;
 
 @end

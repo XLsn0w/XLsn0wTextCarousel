@@ -71,14 +71,14 @@
 }
 
 - (void)topButtonEvent:(UIButton *)topButton {
-    [self.xlsn0wDelegate handleTopEventWithURLString:self.topModel.link_url];
+    [self.xlsn0wDelegate handleTopEventWithURLString:self.topModel.URLString];
 }
 
 - (void)bottomButtonEvent:(UIButton *)bottomButton {
-    [self.xlsn0wDelegate handleBottomEventWithURLString:self.bottomModel.link_url];
+    [self.xlsn0wDelegate handleBottomEventWithURLString:self.bottomModel.URLString];
 }
 
-- (void)setTopModel:(DataModel *)topModel{
+- (void)setTopModel:(DataSourceModel *)topModel {
     _topModel = topModel;
     //  去掉\n
     NSString *title = [NSString stringWithFormat:@"%@", [topModel.title stringByReplacingOccurrencesOfString:@"\\n" withString:@"\n"]];
@@ -87,7 +87,7 @@
     
 }
 
-- (void)setBottomModel:(DataModel *)bottomModel{
+- (void)setBottomModel:(DataSourceModel *)bottomModel {
     _bottomModel = bottomModel;
     NSString *title = [NSString stringWithFormat:@"%@", [bottomModel.title stringByReplacingOccurrencesOfString:@"\\n" withString:@"\n"]];
     [self.bottomButton setTitle:title forState:UIControlStateNormal];

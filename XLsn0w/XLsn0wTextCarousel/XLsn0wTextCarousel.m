@@ -12,29 +12,29 @@
 #import "XLsn0wTextCarousel.h"
 
 @interface XLsn0wTextCarousel () {
-    
-    NSTimer *_timer;     //定时器
     int count;  // 哪个 modle
     int page; // 哪一页
     int flag; //标识当前是哪个view显示(currentView/hidenView)
-    NSMutableArray *_dataArr;
+    NSMutableArray *_dataSourceArray;//数据源数组
 }
 
 @property (nonatomic,strong) UIView *currentView;   //当前显示的view
 @property (nonatomic,strong) UIView *hidenView;     //底部藏起的view
+
+@property (nonatomic, strong) NSTimer *timer;//定时器
 
 @end
 
 @implementation XLsn0wTextCarousel
 
 - (NSMutableArray *)dataArr {
-    if (!_dataArr) {
-        _dataArr = [[NSMutableArray alloc]init];
+    if (!_dataSourceArray) {
+        _dataSourceArray = [NSMutableArray array];
     }
-    return _dataArr;
+    return _dataSourceArray;
 }
-- (id)initWithFrame:(CGRect)frame
-{
+
+- (instancetype)initWithFrame:(CGRect)frame {
     self = [super initWithFrame:frame];
     if (self) {
         [self createUI];
@@ -45,27 +45,25 @@
 - (void)createUI {
     count = 0;
     flag = 0;
-  
     
     self.layer.masksToBounds = YES;
-
+    
     //创建定时器    
     [self createCurrentView];
     [self createHidenView];
     [self createTimer];
     
 }
+
 - (void)layoutSubviews{
     [super layoutSubviews];
-    
-    
 }
-- (void)setDataArr:(NSMutableArray *)dataArr{
-    _dataArr = dataArr;
+
+- (void)setDataSourceArray:(NSMutableArray *)dataSourceArray{
+    _dataSourceArray = dataSourceArray;
     
-    DataModel *currentTopModel = _dataArr[count];
-    DataModel *currentBottomModel;
-    currentBottomModel = _dataArr[count + 1];
+    DataSourceModel *currentTopModel    = _dataSourceArray[count];
+    DataSourceModel *currentBottomModel = _dataSourceArray[count + 1];
 
     self.currentTextInfoView.topModel = currentTopModel;
     self.currentTextInfoView.bottomModel = currentBottomModel;
@@ -81,7 +79,7 @@
 {
     
     count += 2;
-    if (count >= _dataArr.count) {
+    if (count >= _dataSourceArray.count) {
         count = 0;
     }
 
@@ -90,12 +88,12 @@
     if (flag == 1) {
         // currernt 赋值
         
-        DataModel *currentTopModel = _dataArr[count];
-        DataModel *currentBottomModel;
-        if(count + 1 >= _dataArr.count){
+        DataSourceModel *currentTopModel = _dataSourceArray[count];
+        DataSourceModel *currentBottomModel;
+        if(count + 1 >= _dataSourceArray.count){
             currentBottomModel = nil;
         }
-        currentBottomModel = _dataArr[count + 1];
+        currentBottomModel = _dataSourceArray[count + 1];
         self.currentTextInfoView.topModel = currentTopModel;
         self.currentTextInfoView.bottomModel = currentBottomModel;
         
@@ -104,12 +102,12 @@
     
     if (flag == 0) {
         //hidden 赋值
-        DataModel *hienTopModel = _dataArr[count];
-        DataModel *hiddenBottomModel;
-        if(count + 1 >= _dataArr.count){
+        DataSourceModel *hienTopModel = _dataSourceArray[count];
+        DataSourceModel *hiddenBottomModel;
+        if(count + 1 >= _dataSourceArray.count){
             hiddenBottomModel = nil;
         }
-        hiddenBottomModel = _dataArr[count + 1];
+        hiddenBottomModel = _dataSourceArray[count + 1];
         
         self.hiddenTextInfoView.topModel = hienTopModel;
         self.hiddenTextInfoView.bottomModel = hiddenBottomModel;
@@ -143,14 +141,13 @@
     }
 }
 
-- (void)createCurrentView
-{
-    DataModel *topModel = _dataArr[count];
-    DataModel *bottomModel;
-    if (count + 1 >= _dataArr.count) {
+- (void)createCurrentView {
+    DataSourceModel *topModel = _dataSourceArray[count];
+    DataSourceModel *bottomModel;
+    if (count + 1 >= _dataSourceArray.count) {
         bottomModel = nil;
     }
-    bottomModel = _dataArr[count + 1];
+    bottomModel = _dataSourceArray[count + 1];
 
 
     self.currentView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, self.frame.size.width, self.frame.size.height)];
@@ -166,12 +163,12 @@
 }
 
 - (void)createHidenView {
-    DataModel *topModel = _dataArr[count];
-    DataModel *bottomModel;
-    if (count + 1 >= _dataArr.count) {
+    DataSourceModel *topModel = _dataSourceArray[count];
+    DataSourceModel *bottomModel;
+    if (count + 1 >= _dataSourceArray.count) {
         bottomModel = nil;
     }
-    bottomModel = _dataArr[count + 1];
+    bottomModel = _dataSourceArray[count + 1];
 
     self.hidenView = [[UIView alloc]initWithFrame:CGRectMake(0, self.frame.size.height , self.frame.size.width, self.frame.size.height)];
     [self addSubview:self.hidenView];

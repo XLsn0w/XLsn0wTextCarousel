@@ -1,76 +1,56 @@
-//
-//  ViewController.m
-//  TaoBaoTopLine
-//
-//  Created by Yesi on 16/3/31.
-//  Copyright © 2016年 Yesi. All rights reserved.
-//
+/*********************************************************************************************
+ *   __      __   _         _________     _ _     _    _________   __         _         __   *
+ *	 \ \    / /  | |        | _______|   | | \   | |  |  ______ |  \ \       / \       / /   *
+ *	  \ \  / /   | |        | |          | |\ \  | |  | |     | |   \ \     / \ \     / /    *
+ *     \ \/ /    | |        | |______    | | \ \ | |  | |     | |    \ \   / / \ \   / /     *
+ *     /\/\/\    | |        |_______ |   | |  \ \| |  | |     | |     \ \ / /   \ \ / /      *
+ *    / /  \ \   | |______   ______| |   | |   \ \ |  | |_____| |      \ \ /     \ \ /       *
+ *   /_/    \_\  |________| |________|   |_|    \__|  |_________|       \_/       \_/        *
+ *                                                                                           *
+ *********************************************************************************************/
 
 #import "ViewController.h"
-#import "DataModel.h"
+
 #import "XLsn0wTextCarousel.h"
+#import "DataSourceModel.h"
 
 @interface ViewController () <TextInfoViewDelegate>
 /** dataSource */
-@property (nonatomic, strong) NSMutableArray *datas;
+@property (nonatomic, strong) NSMutableArray *dataSourceArray;
 
 
 @end
 
 @implementation ViewController
-#pragma mark - Lazy 
--(NSMutableArray *)datas{
-    if (!_datas) {
-        _datas = [NSMutableArray array];
-    }
-    return _datas;
-}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
     self.view.backgroundColor = [UIColor blueColor];
- 
-    [self createData];
+
     [self createToplineView];
-    
-   
 }
 
-// Create 10 datas
-- (void)createData{
+- (void)createToplineView{
     
-    for (int i = 0; i < 4; i++) {
-      
-        
-        NSString *url;
-        
-        NSArray *titleArray = @[@"小巧便携/USB充电", @"人工智能将是微软的下一件", @"小米5s高配版拆解", @"海量新画面根本不是一个画风"];
+    _dataSourceArray = [NSMutableArray array];
+    NSArray *titleArray = @[@"小巧便携/USB充电", @"人工智能将是微软的下一件", @"小米5s高配版拆解", @"海量新画面根本不是一个画风"];
+    
+    NSArray *URLArray = @[@"http://0", @"http://1", @"http://2", @"http://3"];
+    NSArray *typeArray = @[@"最新", @"头条", @"推荐", @"热门"];
+    
+    for (int i = 0; i < titleArray.count; i++) {
         
         NSString *title = [titleArray objectAtIndex:i];
+        NSString *URLString = [URLArray objectAtIndex:i];
+        NSString *type = [typeArray objectAtIndex:i];
         
-        if (i == 0) {
-           url = @"0";
-        }else if (i == 1) {
-           url = @"1";
-        }else if (i == 2) {
-            url = @"2";
-        }else {
-            url = @"3";
-        }
-        DataModel *model = [DataModel dataModelWithTitle:title url:url type:url];
+        DataSourceModel *model = [DataSourceModel dataSourceModelWithType:type title:title URLString:URLString];
         
-        [self.datas addObject:model];
+        [_dataSourceArray addObject:model];
     }
-}
-- (void)createToplineView{
-    CGFloat width = 300;
-    CGFloat height = 50;
-    CGFloat x = ([UIScreen mainScreen].bounds.size.width - width) / 2;
-    CGFloat y = ([UIScreen mainScreen].bounds.size.height - height) / 2;
 
-    XLsn0wTextCarousel *view = [[XLsn0wTextCarousel alloc] initWithFrame:CGRectMake(x , y, [UIScreen mainScreen].bounds.size.width-70, 80)];
-    view.dataArr = self.datas;
+    XLsn0wTextCarousel *view = [[XLsn0wTextCarousel alloc] initWithFrame:CGRectMake(50 , 200, [UIScreen mainScreen].bounds.size.width-70, 80)];
+    view.dataSourceArray = _dataSourceArray;
     view.currentTextInfoView.xlsn0wDelegate = self;
     view.hiddenTextInfoView.xlsn0wDelegate = self;
     view.backgroundColor =[UIColor whiteColor];

@@ -11,7 +11,7 @@
 
 #import <UIKit/UIKit.h>
 
-#import "DataModel.h"
+#import "DataSourceModel.h"
 
 @protocol TextInfoViewDelegate <NSObject>
 
@@ -24,7 +24,7 @@
 
 @property (nonatomic, weak) id<TextInfoViewDelegate> xlsn0wDelegate;
 
-@property (nonatomic, strong) DataModel *topModel;
-@property (nonatomic, strong) DataModel *bottomModel;
+@property (nonatomic, strong) DataSourceModel *topModel;
+@property (nonatomic, strong) DataSourceModel *bottomModel;
 
 @end
