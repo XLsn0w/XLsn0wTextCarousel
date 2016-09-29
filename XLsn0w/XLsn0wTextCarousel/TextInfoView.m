@@ -11,6 +11,9 @@
 
 #import "TextInfoView.h"
 
+#define kFit6PWidth  ([UIScreen mainScreen].bounds.size.width / 414)
+#define kFit6PHeight ([UIScreen mainScreen].bounds.size.height / 736)
+
 @interface TextInfoView ()
 
 @property (nonatomic, strong) UILabel *topLabel;
@@ -39,7 +42,6 @@
     self.topLabel.textColor = [UIColor orangeColor];
     self.topLabel.layer.cornerRadius = 5;
     self.topLabel.layer.masksToBounds = YES;
-    self.topLabel.text = @"最新";
     self.topLabel.textAlignment = NSTextAlignmentCenter;
     self.topLabel.font = [UIFont systemFontOfSize:13];
     
@@ -51,20 +53,19 @@
     self.bottomLabel.textColor = [UIColor blueColor];
     self.bottomLabel.layer.cornerRadius = 5;
     self.bottomLabel.layer.masksToBounds = YES;
-    self.bottomLabel.text = @"头条";
     self.bottomLabel.textAlignment = NSTextAlignmentCenter;
     self.bottomLabel.font = [UIFont systemFontOfSize:13];
     
     self.topButton = [UIButton new];
     [self addSubview:self.topButton];
-    [self.topButton setFrame:(CGRectMake(55, 13, 300, 20.5))];
+    [self.topButton setFrame:(CGRectMake(58*kFit6PWidth, 13, 270*kFit6PWidth, 21))];
     [self.topButton addTarget:self action:@selector(topButtonEvent:) forControlEvents:(UIControlEventTouchUpInside)];
     self.topButton.contentHorizontalAlignment = UIControlContentHorizontalAlignmentFill;
     [self.topButton setTitleColor:[UIColor blackColor] forState:(UIControlStateNormal)];
     
     self.bottomButton = [UIButton new];
     [self addSubview:self.bottomButton];
-    [self.bottomButton setFrame:(CGRectMake(55, 43, 240.5, 20.5))];
+    [self.bottomButton setFrame:(CGRectMake(58*kFit6PWidth, 43, 270*kFit6PWidth, 21))];
     [self.bottomButton addTarget:self action:@selector(bottomButtonEvent:) forControlEvents:(UIControlEventTouchUpInside)];
     self.bottomButton.contentHorizontalAlignment = UIControlContentHorizontalAlignmentFill;
     [self.bottomButton setTitleColor:[UIColor blackColor] forState:(UIControlStateNormal)];
