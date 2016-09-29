@@ -15,9 +15,8 @@
 #import "DataSourceModel.h"
 
 @interface ViewController () <TextInfoViewDelegate>
-/** dataSource */
-@property (nonatomic, strong) NSMutableArray *dataSourceArray;
 
+@property (nonatomic, strong) NSMutableArray *dataSourceArray;
 
 @end
 
@@ -26,26 +25,22 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor blueColor];
-
     [self createToplineView];
 }
 
 - (void)createToplineView{
-    
     _dataSourceArray = [NSMutableArray array];
-    NSArray *titleArray = @[@"小巧便携/USB充电", @"人工智能将是微软的下一件", @"小米5s高配版拆解", @"海量新画面根本不是一个画风"];
     
-    NSArray *URLArray = @[@"http://0", @"http://1", @"http://2", @"http://3"];
     NSArray *typeArray = @[@"最新", @"头条", @"推荐", @"热门"];
+    NSArray *titleArray = @[@"小巧便携/USB充电", @"人工智能将是微软的下一件", @"小米5s高配版拆解", @"海量新画面根本不是一个画风"];
+    NSArray *URLArray = @[@"http://0", @"http://1", @"http://2", @"http://3"];
     
     for (int i = 0; i < titleArray.count; i++) {
-        
         NSString *title = [titleArray objectAtIndex:i];
         NSString *URLString = [URLArray objectAtIndex:i];
         NSString *type = [typeArray objectAtIndex:i];
         
         DataSourceModel *model = [DataSourceModel dataSourceModelWithType:type title:title URLString:URLString];
-        
         [_dataSourceArray addObject:model];
     }
 
@@ -64,7 +59,6 @@
 - (void)handleBottomEventWithURLString:(NSString *)URLString {
     NSLog(@"URLString===%@", URLString);
 }
-
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
