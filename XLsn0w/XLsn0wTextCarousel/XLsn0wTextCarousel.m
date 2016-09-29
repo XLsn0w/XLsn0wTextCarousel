@@ -18,10 +18,10 @@
     NSMutableArray *_dataSourceArray;//数据源数组
 }
 
-@property (nonatomic,strong) UIView *currentView;   //当前显示的view
-@property (nonatomic,strong) UIView *hidenView;     //底部藏起的view
+@property (nonatomic, strong) NSTimer *xlsn0wTimer;
 
-@property (nonatomic, strong) NSTimer *timer;//定时器
+@property (nonatomic,strong) UIView *currentView;//当前显示的view
+@property (nonatomic,strong) UIView *hidenView;//底部藏起的view
 
 @end
 
@@ -71,12 +71,15 @@
 }
 
 - (void)createTimer {
-    _timer = [NSTimer scheduledTimerWithTimeInterval:3 target:self selector:@selector(dealTimer) userInfo:nil repeats:YES];
+    self.xlsn0wTimer = [NSTimer scheduledTimerWithTimeInterval:self.xlsn0wTimeInterval
+                                              target:self
+                                            selector:@selector(carouselTimerEvent)
+                                            userInfo:nil
+                                             repeats:YES];
 }
 
 #pragma mark - 跑马灯操作
--(void)dealTimer
-{
+-(void)carouselTimerEvent {
     
     count += 2;
     if (count >= _dataSourceArray.count) {
@@ -172,8 +175,7 @@
 
     self.hidenView = [[UIView alloc]initWithFrame:CGRectMake(0, self.frame.size.height , self.frame.size.width, self.frame.size.height)];
     [self addSubview:self.hidenView];
-    
-    //self.hiddenTest = [[[NSBundle mainBundle]loadNibNamed:NSStringFromClass([TestView class]) owner:nil options:nil]lastObject];
+
     self.hiddenTextInfoView = [[TextInfoView alloc] init];
     self.hiddenTextInfoView.frame = self.hidenView.bounds;
     
@@ -184,13 +186,11 @@
 }
 
 #pragma mark - 停止定时器
-- (void)stopTimer
-{
-    //停止定时器
-    //在invalidate之前最好先用isValid先判断是否还在线程中：
-    if ([_timer isValid] == YES) {
-        [_timer invalidate];
-        _timer = nil;
+
+- (void)stopTimer {
+    if ([self.xlsn0wTimer isValid] == YES) {//在invalidate之前最好先用isValid先判断是否还在线程中
+        [self.xlsn0wTimer invalidate];
+        self.xlsn0wTimer = nil;
     }
 }
 
