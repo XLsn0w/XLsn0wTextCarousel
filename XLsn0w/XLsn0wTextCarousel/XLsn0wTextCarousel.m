@@ -51,7 +51,7 @@
     //创建定时器    
     [self createCurrentView];
     [self createHidenView];
-    [self createTimer];
+    [self initTimer];
     
 }
 
@@ -70,8 +70,9 @@
 
 }
 
-- (void)createTimer {
-    self.xlsn0wTimer = [NSTimer scheduledTimerWithTimeInterval:self.xlsn0wTimeInterval
+- (void)initTimer {
+    _autoTimeInterval = 3;
+    self.xlsn0wTimer = [NSTimer scheduledTimerWithTimeInterval:_autoTimeInterval
                                               target:self
                                             selector:@selector(carouselTimerEvent)
                                             userInfo:nil

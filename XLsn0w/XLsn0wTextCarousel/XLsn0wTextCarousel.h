@@ -21,7 +21,7 @@
 @property (nonatomic,strong) TextInfoView *currentTextInfoView;
 @property (nonatomic,strong) TextInfoView *hiddenTextInfoView;
 
-@property (nonatomic, assign) NSTimeInterval xlsn0wTimeInterval;
+@property (nonatomic, assign) NSTimeInterval autoTimeInterval;
 
 //停止定时器(界面消失前必须要停止定时器否则内存泄漏)
 - (void)stopTimer;
