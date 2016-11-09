@@ -1,7 +1,7 @@
 
 Pod::Spec.new do |s|
 
-  s.version      = "2.2.7"
+  s.version      = "2.3.1"
 
   s.name         = "XLsn0wTextCarousel"
   s.homepage     = "https://github.com/XLsn0w/XLsn0wTextCarousel"

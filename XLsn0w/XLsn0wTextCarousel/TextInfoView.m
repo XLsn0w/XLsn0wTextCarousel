@@ -13,6 +13,10 @@
 
 #define kFit6PWidth  ([UIScreen mainScreen].bounds.size.width / 414)
 #define kFit6PHeight ([UIScreen mainScreen].bounds.size.height / 736)
+#define iPhone4s    ([[UIScreen mainScreen] bounds].size.height == 480)
+#define iPhone5     ([[UIScreen mainScreen] bounds].size.height == 568)
+#define iPhone6     ([[UIScreen mainScreen] bounds].size.height == 667)
+#define iPhone6Plus ([[UIScreen mainScreen] bounds].size.height == 736)
 
 @interface TextInfoView ()
 
@@ -36,7 +40,7 @@
 - (void)drawUI {
     self.topLabel = [UILabel new];
     [self addSubview:self.topLabel];
-    [self.topLabel setFrame:(CGRectMake(10, 10, 35, 25))];
+    [self.topLabel setFrame:(CGRectMake(10*kFit6PWidth, 10, 35, 25))];
     self.topLabel.layer.borderWidth = 1;
     self.topLabel.layer.borderColor = [[UIColor orangeColor] CGColor];
     self.topLabel.textColor = [UIColor orangeColor];
@@ -47,7 +51,7 @@
     
     self.bottomLabel = [UILabel new];
     [self addSubview:self.bottomLabel];
-    [self.bottomLabel setFrame:(CGRectMake(10, 40, 35, 25))];
+    [self.bottomLabel setFrame:(CGRectMake(10*kFit6PWidth, 40, 35, 25))];
     self.bottomLabel.layer.borderWidth = 1;
     self.bottomLabel.layer.borderColor = [[UIColor blueColor] CGColor];
     self.bottomLabel.textColor = [UIColor blueColor];
@@ -58,17 +62,31 @@
     
     self.topButton = [UIButton new];
     [self addSubview:self.topButton];
-    [self.topButton setFrame:(CGRectMake(58*kFit6PWidth, 13, 270*kFit6PWidth, 21))];
+    [self.topButton setFrame:(CGRectMake(66*kFit6PWidth, 13, 330*kFit6PWidth, 21))];
     [self.topButton addTarget:self action:@selector(topButtonEvent:) forControlEvents:(UIControlEventTouchUpInside)];
     self.topButton.contentHorizontalAlignment = UIControlContentHorizontalAlignmentFill;
     [self.topButton setTitleColor:[UIColor blackColor] forState:(UIControlStateNormal)];
     
     self.bottomButton = [UIButton new];
     [self addSubview:self.bottomButton];
-    [self.bottomButton setFrame:(CGRectMake(58*kFit6PWidth, 43, 270*kFit6PWidth, 21))];
+    [self.bottomButton setFrame:(CGRectMake(66*kFit6PWidth, 43, 330*kFit6PWidth, 21))];
     [self.bottomButton addTarget:self action:@selector(bottomButtonEvent:) forControlEvents:(UIControlEventTouchUpInside)];
     self.bottomButton.contentHorizontalAlignment = UIControlContentHorizontalAlignmentFill;
     [self.bottomButton setTitleColor:[UIColor blackColor] forState:(UIControlStateNormal)];
+    
+    if (iPhone6Plus) {
+        self.topButton.titleLabel.font = [UIFont boldSystemFontOfSize:16];
+        self.bottomButton.titleLabel.font = [UIFont boldSystemFontOfSize:16];
+    } else if (iPhone6) {
+        self.topButton.titleLabel.font = [UIFont boldSystemFontOfSize:15];
+        self.bottomButton.titleLabel.font = [UIFont boldSystemFontOfSize:15];
+    } else if (iPhone5) {
+        self.topButton.titleLabel.font = [UIFont boldSystemFontOfSize:14];
+        self.bottomButton.titleLabel.font = [UIFont boldSystemFontOfSize:14];
+    } else {
+        self.topButton.titleLabel.font = [UIFont boldSystemFontOfSize:13];
+        self.bottomButton.titleLabel.font = [UIFont boldSystemFontOfSize:13];
+    }
 }
 
 - (void)topButtonEvent:(UIButton *)topButton {

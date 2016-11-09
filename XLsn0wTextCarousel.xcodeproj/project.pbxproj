@@ -7,13 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		35292B421DD30C5E008DDB53 /* TextInfoView.m in Sources */ = {isa = PBXBuildFile; fileRef = 35292B411DD30C5E008DDB53 /* TextInfoView.m */; };
 		3537DBEC1D9ABF9100DD1E9B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 3537DBEB1D9ABF9100DD1E9B /* main.m */; };
 		3537DBEF1D9ABF9100DD1E9B /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3537DBEE1D9ABF9100DD1E9B /* AppDelegate.m */; };
 		3537DBF51D9ABF9100DD1E9B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3537DBF31D9ABF9100DD1E9B /* Main.storyboard */; };
 		3537DBF71D9ABF9100DD1E9B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3537DBF61D9ABF9100DD1E9B /* Assets.xcassets */; };
 		3537DBFA1D9ABF9100DD1E9B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3537DBF81D9ABF9100DD1E9B /* LaunchScreen.storyboard */; };
 		3537DC0A1D9AC15C00DD1E9B /* XLsn0wTextCarousel.podspec in Resources */ = {isa = PBXBuildFile; fileRef = 3537DC091D9AC15C00DD1E9B /* XLsn0wTextCarousel.podspec */; };
-		35B5B2481D9CBC2100B9F2BD /* TextInfoView.m in Sources */ = {isa = PBXBuildFile; fileRef = 35B5B2431D9CBC2100B9F2BD /* TextInfoView.m */; };
 		35B5B2491D9CBC2100B9F2BD /* DataSourceModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 35B5B2451D9CBC2100B9F2BD /* DataSourceModel.m */; };
 		35B5B24A1D9CBC2100B9F2BD /* XLsn0wTextCarousel.m in Sources */ = {isa = PBXBuildFile; fileRef = 35B5B2471D9CBC2100B9F2BD /* XLsn0wTextCarousel.m */; };
 		35B5B24C1D9CBC5900B9F2BD /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 35B5B24B1D9CBC5900B9F2BD /* ViewController.m */; };
@@ -24,6 +24,7 @@
 
 /* Begin PBXFileReference section */
 		0FF4A3CCB1337D5F81BDF028 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		35292B411DD30C5E008DDB53 /* TextInfoView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TextInfoView.m; sourceTree = "<group>"; };
 		3537DBE71D9ABF9100DD1E9B /* XLsn0wTextCarousel.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = XLsn0wTextCarousel.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3537DBEB1D9ABF9100DD1E9B /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		3537DBED1D9ABF9100DD1E9B /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -36,7 +37,6 @@
 		3537DC091D9AC15C00DD1E9B /* XLsn0wTextCarousel.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = XLsn0wTextCarousel.podspec; sourceTree = "<group>"; };
 		3537DC0B1D9AC1C700DD1E9B /* XLsn0wTextCarouselKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XLsn0wTextCarouselKit.h; sourceTree = "<group>"; };
 		35B5B2421D9CBC2100B9F2BD /* TextInfoView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TextInfoView.h; sourceTree = "<group>"; };
-		35B5B2431D9CBC2100B9F2BD /* TextInfoView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TextInfoView.m; sourceTree = "<group>"; };
 		35B5B2441D9CBC2100B9F2BD /* DataSourceModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataSourceModel.h; sourceTree = "<group>"; };
 		35B5B2451D9CBC2100B9F2BD /* DataSourceModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataSourceModel.m; sourceTree = "<group>"; };
 		35B5B2461D9CBC2100B9F2BD /* XLsn0wTextCarousel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XLsn0wTextCarousel.h; sourceTree = "<group>"; };
@@ -123,7 +123,7 @@
 				35B5B2461D9CBC2100B9F2BD /* XLsn0wTextCarousel.h */,
 				35B5B2471D9CBC2100B9F2BD /* XLsn0wTextCarousel.m */,
 				35B5B2421D9CBC2100B9F2BD /* TextInfoView.h */,
-				35B5B2431D9CBC2100B9F2BD /* TextInfoView.m */,
+				35292B411DD30C5E008DDB53 /* TextInfoView.m */,
 				35B5B2441D9CBC2100B9F2BD /* DataSourceModel.h */,
 				35B5B2451D9CBC2100B9F2BD /* DataSourceModel.m */,
 			);
@@ -292,8 +292,8 @@
 				35B5B24C1D9CBC5900B9F2BD /* ViewController.m in Sources */,
 				35F92C6F1D9B9C4E007A054F /* XLsn0wUpDownNoticeView.m in Sources */,
 				35F92C671D9B9C04007A054F /* XLsn0wHeadlineView.m in Sources */,
+				35292B421DD30C5E008DDB53 /* TextInfoView.m in Sources */,
 				35B5B2491D9CBC2100B9F2BD /* DataSourceModel.m in Sources */,
-				35B5B2481D9CBC2100B9F2BD /* TextInfoView.m in Sources */,
 				3537DBEC1D9ABF9100DD1E9B /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
