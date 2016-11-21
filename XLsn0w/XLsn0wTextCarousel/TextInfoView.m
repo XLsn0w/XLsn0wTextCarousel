@@ -62,14 +62,14 @@
     
     self.topButton = [UIButton new];
     [self addSubview:self.topButton];
-    [self.topButton setFrame:(CGRectMake(66*kFit6PWidth, 13, 330*kFit6PWidth, 21))];
+    [self.topButton setFrame:(CGRectMake(64*kFit6PWidth, 13, 330*kFit6PWidth, 21))];
     [self.topButton addTarget:self action:@selector(topButtonEvent:) forControlEvents:(UIControlEventTouchUpInside)];
     self.topButton.contentHorizontalAlignment = UIControlContentHorizontalAlignmentFill;
     [self.topButton setTitleColor:[UIColor blackColor] forState:(UIControlStateNormal)];
     
     self.bottomButton = [UIButton new];
     [self addSubview:self.bottomButton];
-    [self.bottomButton setFrame:(CGRectMake(66*kFit6PWidth, 43, 330*kFit6PWidth, 21))];
+    [self.bottomButton setFrame:(CGRectMake(64*kFit6PWidth, 43, 330*kFit6PWidth, 21))];
     [self.bottomButton addTarget:self action:@selector(bottomButtonEvent:) forControlEvents:(UIControlEventTouchUpInside)];
     self.bottomButton.contentHorizontalAlignment = UIControlContentHorizontalAlignmentFill;
     [self.bottomButton setTitleColor:[UIColor blackColor] forState:(UIControlStateNormal)];
