@@ -91,6 +91,7 @@
 
 - (void)topButtonEvent:(UIButton *)topButton {
     [self.xlsn0wDelegate handleTopEventWithURLString:self.topModel.URLString];
+//    [self.xlsn0wDelegate getTopDataSourceModel:self.topModel];
 }
 
 - (void)bottomButtonEvent:(UIButton *)bottomButton {
@@ -103,7 +104,7 @@
     NSString *title = [NSString stringWithFormat:@"%@", [topModel.title stringByReplacingOccurrencesOfString:@"\\n" withString:@"\n"]];
     [self.topButton setTitle:title forState:UIControlStateNormal];
     self.topLabel.text = topModel.type;
-    
+    [self.xlsn0wDelegate getTopDataSourceModel:topModel];
 }
 
 - (void)setBottomModel:(DataSourceModel *)bottomModel {
@@ -111,7 +112,7 @@
     NSString *title = [NSString stringWithFormat:@"%@", [bottomModel.title stringByReplacingOccurrencesOfString:@"\\n" withString:@"\n"]];
     [self.bottomButton setTitle:title forState:UIControlStateNormal];
      self.bottomLabel.text = bottomModel.type;
-    
+    [self.xlsn0wDelegate getBottomDataSourceModel:bottomModel];
 }
 
 @end

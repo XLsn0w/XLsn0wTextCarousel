@@ -192,6 +192,8 @@
     if ([self.xlsn0wTimer isValid] == YES) {//在invalidate之前最好先用isValid先判断是否还在线程中
         [self.xlsn0wTimer invalidate];
         self.xlsn0wTimer = nil;
+    } else {
+        NSLog(@"xlsn0wTimer invalidate already");
     }
 }
 

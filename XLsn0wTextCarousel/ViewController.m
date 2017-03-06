@@ -25,10 +25,10 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor blueColor];
-    [self createToplineView];
+    [self createUI];
 }
 
-- (void)createToplineView{
+- (void)createUI{
     _dataSourceArray = [NSMutableArray array];
     NSArray *typeArray = @[@"最新", @"头条", @"推荐", @"热门"];
     NSArray *titleArray = @[@"小巧便携/USB充电", @"人工智能将是微软的下一件", @"小米5s高配版拆解", @"海量新画面根本不是一个画风"];
@@ -51,6 +51,15 @@
 
 - (void)handleTopEventWithURLString:(NSString *)URLString {
     NSLog(@"URLString===%@", URLString);
+}
+
+- (void)getTopDataSourceModel:(DataSourceModel *)topDataSourceModel {
+    
+    NSLog(@"第一个 %@ %@ %@", topDataSourceModel.type, topDataSourceModel.title, topDataSourceModel.URLString);
+}
+
+- (void)getBottomDataSourceModel:(DataSourceModel *)bottomDataSourceModel {
+    NSLog(@"第二个 %@ %@ %@", bottomDataSourceModel.type, bottomDataSourceModel.title, bottomDataSourceModel.URLString);
 }
 
 - (void)handleBottomEventWithURLString:(NSString *)URLString {

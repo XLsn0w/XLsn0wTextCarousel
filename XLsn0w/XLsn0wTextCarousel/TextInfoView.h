@@ -18,6 +18,10 @@
 - (void)handleTopEventWithURLString:(NSString *)URLString;
 - (void)handleBottomEventWithURLString:(NSString *)URLString;
 
+//通过代理在set方法, 获取存取在Model中的信息
+- (void)getTopDataSourceModel:(DataSourceModel *)topDataSourceModel;
+- (void)getBottomDataSourceModel:(DataSourceModel *)bottomDataSourceModel;
+
 @end
 
 @interface TextInfoView : UIView
