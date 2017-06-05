@@ -14,7 +14,7 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = 'primary'
-               BlueprintIdentifier = '67E62D8A494BD2C40D2774F155AC87C0'
+               BlueprintIdentifier = '34BF811538A685C1A25F429B67335DDC'
                BlueprintName = 'Pods-XLsn0wTextCarousel'
                ReferencedContainer = 'container:Pods.xcodeproj'
                BuildableName = 'libPods-XLsn0wTextCarousel.a'>

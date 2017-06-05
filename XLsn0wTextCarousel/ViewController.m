@@ -8,6 +8,7 @@
  *   /_/    \_\  |________| |________|   |_|    \__|  |_________|       \_/       \_/        *
  *                                                                                           *
  *********************************************************************************************/
+#import <XLsn0w.h>
 
 #import "ViewController.h"
 
@@ -29,7 +30,7 @@
 }
 
 - (void)createUI{
-    _dataSourceArray = [NSMutableArray array];
+    self.dataSourceArray = [NSMutableArray array];
     NSArray *typeArray = @[@"最新", @"头条", @"推荐", @"热门"];
     NSArray *titleArray = @[@"小巧便携/USB充电", @"人工智能将是微软的下一件", @"小米5s高配版拆解", @"海量新画面根本不是一个画风"];
     NSArray *URLArray = @[@"http://0", @"http://1", @"http://2", @"http://3"];
@@ -39,10 +40,10 @@
         NSString *URLString = [URLArray objectAtIndex:i];
         NSString *type = [typeArray objectAtIndex:i];
         DataSourceModel *model = [DataSourceModel dataSourceModelWithType:type title:title URLString:URLString];
-        [_dataSourceArray addObject:model];
+        [self.dataSourceArray addObject:model];
     }
     XLsn0wTextCarousel *view = [[XLsn0wTextCarousel alloc] initWithFrame:CGRectMake(50 , 200, [UIScreen mainScreen].bounds.size.width-70, 80)];
-    view.dataSourceArray = _dataSourceArray;
+    view.dataSourceArray = self.dataSourceArray;
     view.currentTextInfoView.xlsn0wDelegate = self;
     view.hiddenTextInfoView.xlsn0wDelegate = self;
     view.backgroundColor =[UIColor whiteColor];
@@ -50,20 +51,19 @@
 }
 
 - (void)handleTopEventWithURLString:(NSString *)URLString {
-    NSLog(@"URLString===%@", URLString);
+    XLsn0wLog(@"URLString===%@", URLString);
 }
 
 - (void)getTopDataSourceModel:(DataSourceModel *)topDataSourceModel {
-    
-    NSLog(@"第一个 %@ %@ %@", topDataSourceModel.type, topDataSourceModel.title, topDataSourceModel.URLString);
+    XLsn0wLog(@"第一个 %@ %@ %@", topDataSourceModel.type, topDataSourceModel.title, topDataSourceModel.URLString);
 }
 
 - (void)getBottomDataSourceModel:(DataSourceModel *)bottomDataSourceModel {
-    NSLog(@"第二个 %@ %@ %@", bottomDataSourceModel.type, bottomDataSourceModel.title, bottomDataSourceModel.URLString);
+    XLsn0wLog(@"第二个 %@ %@ %@", bottomDataSourceModel.type, bottomDataSourceModel.title, bottomDataSourceModel.URLString);
 }
 
 - (void)handleBottomEventWithURLString:(NSString *)URLString {
-    NSLog(@"URLString===%@", URLString);
+    XLsn0wLog(@"URLString===%@", URLString);
 }
 
 - (void)didReceiveMemoryWarning {

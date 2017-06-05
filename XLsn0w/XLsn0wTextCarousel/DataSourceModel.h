@@ -17,6 +17,14 @@
 @property (nonatomic, strong) NSString *title;//滚动的文章标题
 @property (nonatomic, strong) NSString *URLString;//点击获取的URL
 
+
+/**
+ Model用来存储数据在内存里
+
+ @param type      标题的类型 如热门
+ @param title     标题
+ @param URLString 跳转的http/https链接URL
+ */
 + (instancetype)dataSourceModelWithType:(NSString *)type title:(NSString *)title URLString:(NSString *)URLString;
 
 @end

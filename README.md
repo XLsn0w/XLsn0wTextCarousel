@@ -1,7 +1,7 @@
 # XLsn0wTextCarousel
 XLsn0w Text UpDown Carousel
 
-# XLsn0w is An Apple | HTML | PHP Developer 
+# XLsn0w is An Apple Google Developer 
 # 简书:XLsn0w 
 # 新浪微博:XLsn0w 
 # 微信公众号:Cydiapple

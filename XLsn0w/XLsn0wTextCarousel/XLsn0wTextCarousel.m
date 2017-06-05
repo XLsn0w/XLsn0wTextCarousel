@@ -186,7 +186,11 @@
 
 }
 
-#pragma mark - 停止定时器
+#pragma mark - 销毁定时器
+
+- (void)destroyNSTimer {
+    [self stopTimer];
+}
 
 - (void)stopTimer {
     if ([self.xlsn0wTimer isValid] == YES) {//在invalidate之前最好先用isValid先判断是否还在线程中
