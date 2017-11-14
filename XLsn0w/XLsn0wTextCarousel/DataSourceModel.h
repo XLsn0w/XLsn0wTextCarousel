@@ -13,10 +13,12 @@
 
 @interface DataSourceModel : NSObject
 
-@property (nonatomic, copy) NSString *type;//类型 比如热门
+@property (nonatomic, copy)   NSString *type;//类型 比如热门
 @property (nonatomic, strong) NSString *title;//滚动的文章标题
 @property (nonatomic, strong) NSString *URLString;//点击获取的URL
 
-+ (instancetype)dataSourceModelWithType:(NSString *)type title:(NSString *)title URLString:(NSString *)URLString;
++ (instancetype)dataSourceModelWithType:(NSString *)type
+                                  title:(NSString *)title
+                              URLString:(NSString *)URLString;
 
 @end
