@@ -42,6 +42,14 @@
     return self;
 }
 
+- (instancetype)initWithFrame:(CGRect)frame DataSoure:(NSArray *)dataSource {
+    if (self = [super initWithFrame:frame]) {
+        self.dataSourceArray = dataSource.mutableCopy;
+        [self createUI];
+    }
+    return self;
+}
+
 - (void)createUI {
     count = 0;
     flag = 0;
@@ -80,7 +88,7 @@
 }
 
 #pragma mark - 跑马灯操作
--(void)carouselTimerEvent {
+- (void)carouselTimerEvent {
     
     count += 2;
     if (count >= _dataSourceArray.count) {
@@ -90,14 +98,17 @@
     
     // 要增加判断 count + 1 没有值的情况下
     if (flag == 1) {
+    
         // currernt 赋值
         
         DataSourceModel *currentTopModel = _dataSourceArray[count];
         DataSourceModel *currentBottomModel;
         if(count + 1 >= _dataSourceArray.count){
             currentBottomModel = nil;
+        } else {
+            currentBottomModel = _dataSourceArray[count + 1];
         }
-        currentBottomModel = _dataSourceArray[count + 1];
+        
         self.currentTextInfoView.topModel = currentTopModel;
         self.currentTextInfoView.bottomModel = currentBottomModel;
         
@@ -110,8 +121,9 @@
         DataSourceModel *hiddenBottomModel;
         if(count + 1 >= _dataSourceArray.count){
             hiddenBottomModel = nil;
+        } else {
+            hiddenBottomModel = _dataSourceArray[count + 1];
         }
-        hiddenBottomModel = _dataSourceArray[count + 1];
         
         self.hiddenTextInfoView.topModel = hienTopModel;
         self.hiddenTextInfoView.bottomModel = hiddenBottomModel;
@@ -150,16 +162,16 @@
     DataSourceModel *bottomModel;
     if (count + 1 >= _dataSourceArray.count) {
         bottomModel = nil;
+    } else {
+        bottomModel = _dataSourceArray[count + 1];
     }
-    bottomModel = _dataSourceArray[count + 1];
 
 
-    self.currentView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, self.frame.size.width, self.frame.size.height)];
+    self.currentView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.frame.size.width, self.frame.size.height)];
     [self addSubview:self.currentView];
    
     //self.currentTest = [[[NSBundle mainBundle]loadNibNamed:NSStringFromClass([TestView class]) owner:nil options:nil]lastObject];
-    self.currentTextInfoView = [[TextInfoView alloc] init];
-    self.currentTextInfoView.frame = CGRectMake(0, 0, self.frame.size.width, self.frame.size.height);
+    self.currentTextInfoView = [[TextInfoView alloc] initWithFrame:CGRectMake(0, 0, self.frame.size.width, self.frame.size.height)];
     self.currentTextInfoView.topModel = topModel;
     self.currentTextInfoView.bottomModel = bottomModel;
 
@@ -171,15 +183,15 @@
     DataSourceModel *bottomModel;
     if (count + 1 >= _dataSourceArray.count) {
         bottomModel = nil;
+    } else {
+        bottomModel = _dataSourceArray[count + 1];
     }
-    bottomModel = _dataSourceArray[count + 1];
 
-    self.hidenView = [[UIView alloc]initWithFrame:CGRectMake(0, self.frame.size.height , self.frame.size.width, self.frame.size.height)];
+    self.hidenView = [[UIView alloc] initWithFrame:CGRectMake(0, self.frame.size.height , self.frame.size.width, self.frame.size.height)];
     [self addSubview:self.hidenView];
 
-    self.hiddenTextInfoView = [[TextInfoView alloc] init];
-    self.hiddenTextInfoView.frame = self.hidenView.bounds;
-    
+    self.hiddenTextInfoView = [[TextInfoView alloc] initWithFrame:self.hidenView.bounds];
+
     self.hiddenTextInfoView.topModel = topModel;
     self.hiddenTextInfoView.bottomModel = bottomModel;
     [self.hidenView addSubview:self.hiddenTextInfoView];
