@@ -23,7 +23,7 @@
 
 @property (nonatomic, assign) NSTimeInterval autoTimeInterval;
 
-//停止定时器(界面消失前必须要停止定时器否则内存泄漏)
+- (instancetype)initWithFrame:(CGRect)frame DataSoure:(NSArray *)dataSource;
 - (void)stopTimer;
 
 @end
